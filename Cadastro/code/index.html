@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Cadastro de Produtos</title>
+</head>
+<body>
+    <header class="header">
+        <div class="menu">
+        <div class="title">
+            <h1>Copperton</h1>
+        </div>
+        <div class="login">
+            <ul>
+            <li><a href="#">Entrar</a></li>
+            </ul>
+        </div>
+        </div>
+        <div>
+            <div class="subtitle">
+                <h3>Cadastro de produtos</h3>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <h3>Produto</h3>
+        <div class="input-box">
+            <label for="cod">Código de Barras: </label>
+            <input id="cod" type="number" name="cod" placeholder="Informe o código de barras" required>
+        </div>
+        <div class="input-box">
+            <label for="name">Nome do Produto: </label>
+            <input id="name" type="text" name="name" placeholder="Nome do produto" required>
+        </div>
+        <div class="input-box-category">
+            <label for="category-label">Categoria: </label>
+            <select name="category-select">
+                <option value="0" class="category-select-options">Selecione a categoria</option>
+                <option value="1" class="category-select-options">Camisa</option>
+                <option value="2" class="category-select-options">Calça</option>
+                <option value="3" class="category-select-options">Bermuda</option>
+                <option value="4" class="category-select-options">Touca</option>
+                <option value="5" class="category-select-options">Óculos</option>
+                <option value="6" class="category-select-options">Cachecol</option>
+                <option value="7" class="category-select-options">Meia</option>
+                <option value="8" class="category-select-options">Moletom</option>
+                <option value="9" class="category-select-options">Jaqueta</option>
+                <option value="10" class="category-select-options">Cueca</option>
+                <option value="11" class="category-select-options">Tênis</option>
+                <option value="12" class="category-select-options">Bandeira</option>
+            </select>
+        </div>
+        <div class="input-box">
+            <label for="marca">Marca: </label>
+            <select name="category-select">
+                <option value="0" class="category-select-options">Selecione a marca</option>
+                <option value="1" class="category-select-options">Imperial</option>
+                <option value="2" class="category-select-options">Cloud 9</option>
+                <option value="3" class="category-select-options">Fúria</option>
+                <option value="4" class="category-select-options">MIBR</option>
+                <option value="5" class="category-select-options">NAVI</option>
+                <option value="6" class="category-select-options">NIP</option>
+                <option value="7" class="category-select-options">Astralis</option>
+                <option value="8" class="category-select-options">00 Nation</option>
+                <option value="9" class="category-select-options">Outsiders</option>
+                <option value="10" class="category-select-options">Faze</option>
+                <option value="11" class="category-select-options">Vitality</option>
+                <option value="12" class="category-select-options">G2</option>
+            </select>
+        </div>
+        <div class="select-box">
+            <label for="estoque">Estoque: </label>
+            <ul>
+            <li><a href="#">Produto <i class="fa fa-caret-down"></i></a>
+          <div class="dropdown_menu">
+            <ul>
+                <li>Camiseta</li>
+                <li>Calça</li>
+                <li><a href="#">Moletom</a></li>
+                <li><a href="#">Jaqueta</a></li>
+                <li><a href="#">Boné</a></li>
+                <li><a href="#">Gorro</a></li>
+                <li><a href="#">Acessórios</a></li>
+            </ul>
+            </div>
+            </li>
+            </ul>
+        </div>
+        <div class="input-box">
+            <label for="description">Descrição: </label>
+            <input id="description" type="text" name="description" placeholder="Descrição do produto" required>
+        </div>
+        <div class="input-box">
+            <label for="uni">Unidades: </label>
+            <input id="uni" type="number" name="uni" placeholder="Produtos no estoque" required>
+        </div>
+        <h3>Valor</h3>
+        <div class="input-box">
+            <label for="valor">Valor do Produto: </label>
+            <input id="valor" type="number" name="valor" placeholder="Valor do produto: xx.xxx,xx" required>
+        </div>
+        <div class="input-box">
+            <label for="producao">Custo Produção: </label>
+            <input id="producao" type="number" name="producao" placeholder="Custo de Produção: xx.xxx,xx" required>
+        </div>
+        <div class="input-box">
+            <label for="lucro">Lucro: </label>
+            <input id="lucro" type="number" name="lucro" placeholder="Lucro em cima do custo" required>
+        </div>
+        <h3>Descontos</h3>
+        <div class="input-box">
+            <label for="desconto">Desconto Total: </label>
+            <input id="desconto" type="number" name="desconto" placeholder="Desconto do produto" required>
+        </div>
+        <div class="input-box">
+            <label for="procentagem">Porcentagem de Desconto: </label>
+            <input id="porcentagem" type="number" name="porcentagem" placeholder="Porcentagem de desconto" required>
+        </div>
+        <div class="button-confirm">
+        <label class="label-button">Confirmar cadastro de produto: </label>
+        <div class="button">
+            <button class="button-enviar"><a href="#">Enviar</a></button>
+            <button class="button-cancelar"><a href="#">Cancelar</a></button>
+        </div>
+        </div>
+    </main>
+    <footer class="footer">
+    </footer>
+</body>
+</html>

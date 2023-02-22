@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Produto</title>
+  </head>
+<body>
+    <header class="cabecalho">
+        <div class="cabecalho-menu">
+          <img src="/images/logotipo.png" class="cabecalho-logo">
+          <ul>
+            <li><a href="#">Produto <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown_menu">
+              <ul>
+                <li><a href="#">Camiseta</a></li>
+                <li><a href="#">Calça</a></li>
+                <li><a href="#">Moletom</a></li>
+                <li><a href="#">Jaqueta</a></li>
+                <li><a href="#">Boné</a></li>
+                <li><a href="#">Gorro</a></li>
+                <li><a href="#">Acessórios</a></li>
+              </ul>
+            </div>
+            </li>
+            <li><a href="#">Categoria <i class="fa fa-caret-down"></i></a>
+              <div class="dropdown_menu">
+                <ul>
+                  <li><a href="#">CS:GO</a></li>
+                  <li><a href="#">Valorant</a></li>
+                  <li><a href="#">Halo</a></li>
+                  <li><a href="#">Call of Duty</a></li>
+                  <li><a href="#">FIFA</a></li>
+                  <li><a href="#">Genshin</a></li>
+                  <li><a href="#">PUBG</a></li>
+                  <li><a href="#">Free Fire</a></li>
+                </ul>
+              </div>
+              </li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+      </header>
+      <main>
+        <div class="form-container">
+            <h1>Cadastro de Produtos</h1>
+            <form>
+              <label>Nome do Produto:</label>
+              <input type="text" name="product-name">
+              <label>Descrição:</label>
+              <textarea name="product-description"></textarea>
+              <label>Preço:</label>
+              <input type="text" name="product-price">
+              <label>Categoria:</label>
+              <select name="product-category">
+                <option value="camisa">Camisa</option>
+                <option value="jaqueta">Jaqueta</option>
+                <option value="moletom">Moletom</option>
+                <option value="bone">Boné</option>
+                <option value="acessorios">Acessórios</option>
+                <option value="bandeirao">Bandeirão</option>
+                <option value="calca">Calça</option>
+                <option value="gorro">Gorro</option>
+              </select>
+              <label>Estoque:</label>
+              <input type="text" name="product-stoke">
+              <label>Marca:</label>
+              <input type="text" name="product-brand">
+              <label>Código de Barras:</label>
+              <input type="text" name="product-code">
+              <label>Tamanho:</label>
+              <input type="text" name="product-size">
+              <label>Cor:</label>
+              <input type="text" name="product-color">
+              <label>Material:</label>
+              <input type="text" name="product-material">
+              <label>Imagem:</label>
+              <input type="file" name="product-image">
+              <button type="submit">Cadastrar</button>
+            </form>
+          </div>
+      </main>
+</body>
+</html>

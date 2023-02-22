@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body {
+    font-size: 100%;
+    background-color: white;
+}
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.67vh 10.05vh;
+    background-image: url('/images/backgroud_header.jpg');
+    font-family: 'Noto Sans', 'Sans Serif';
+    font-size: 2.74vh;
+    font-weight: 500;
+}
+.cabecalho-img {
+    height: 18.40vh;
+}
+.cabecalho-logo {
+    height: 150px;
+    width: 150px;
+}
+.cabecalho-menu {
+    width: 100%;
+    display: flex;
+    direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+.cabecalho-menu ul {
+    list-style: none;
+    display: flex;
+}
+.cabecalho-menu ul li {
+    padding: 10px 30px;
+    position: relative;
+}
+.cabecalho-menu ul li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.cabecalho-menu ul li a:hover {
+    color: red;
+}
+.dropdown_menu {
+    display: none;
+}
+.cabecalho-menu ul li:hover .dropdown_menu {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #737b8b;
+    border-radius: 7px;
+}
+.cabecalho-menu ul li:hover .dropdown_menu ul {
+    display: block;
+    margin: 5px;
+}
+.cabecalho-menu ul li:hover .dropdown_menu ul li {
+    width: 125px;
+    padding: 8px;
+    text-align: left;
+    margin-left: 15px;
+}
+.desenvolvimento-principal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20.71vh;
+    margin-bottom: 20.71vh;
+    font-family: 'Noto Sans', 'Sans Serif';
+    justify-content: space-around;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.desenvolvimento-principal-estrutura {
+    display: flex;
+    flex-direction: column;
+    gap: 4.28vh;
+    width: 800px;
+}
+.history-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+.history-text {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+.desenvolvimento-imagem {
+    height: 46.91vh;
+}
+.contact {
+    background-image: url("/images/backgroud_fale.jpg");
+    background-repeat: no-repeat;
+    margin-top: 70px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.contact-form-container {
+    width: 800px;
+    padding-left: 185px;
+    text-align: justify;
+    font-family: 'Noto Sans', 'Sans Serif';
+    color: white;
+}
+.form-title {
+    font-size: 36px;
+    margin-bottom: 60px;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+}
+label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.submit-button {
+    width: 200px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.submit-button:hover {
+    background-color: lightcoral;
+}
+.privacy-policy-container {
+    width: 800px;
+    margin-left: 185px;
+    text-align: justify;
+    font-family: 'Noto Sans', 'Sans Serif';
+    line-height: 1.5;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+.policy-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+.policy-subtitle {
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.policy-text {
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+.payment {
+    background-image: url("/images/backgroud_fale.jpg");
+}
+.payment-options-container {
+    width: 800px;
+    margin-left: 185px;
+    text-align: justify;
+    font-family: 'Noto Sans', 'Sans Serif';
+    line-height: 1.5;
+    padding-bottom: 100px;
+    padding-top: 50px;
+    color: white;
+}
+.payment-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+.payment-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.payment-logo {
+    width: 100px;
+    margin-right: 20px;
+}
+.payment-text {
+    margin: 0;
+    font-size: 18px;
+}
+.rodape {
+    background-color: #5a6170;
+    padding: 9.38vh 0;
+}
+.container {
+    margin-left: 6.70vh;
+    margin-right: 6.70vh;
+    justify-content: space-around;
+}
+.rodape-linha {
+    display: flex;
+    flex-wrap: wrap;
+}
+.rodape-opcoes {
+    width: 25%;
+    padding: 0 2.01vh;
+}
+.rodape-opcoes h4 {
+    font-family: 'Noto Sans', 'Sans Serif';
+    font-weight: 600;
+    font-size: 2.41vh;
+    color: white;
+    text-transform: capitalize;
+    position: relative;
+    margin-bottom: 2.14vh;
+    padding-bottom: 2.14vh;
+    border-bottom: 0.093vh solid rgb(255, 0, 0);
+}
+.rodape-opcoes ul li a {
+    font-family: 'Noto Sans', 'Sans Serif';
+    font-weight: 400;
+    font-size: 2.14vh;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+}
+.rodape-opcoes ul li a:hover {
+    color: rgb(255, 0, 0);
+}
+.rodape-lista {
+    list-style: none;
+}
