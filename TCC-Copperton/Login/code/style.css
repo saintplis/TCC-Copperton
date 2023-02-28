@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Noto Sans', sans-serif;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/Login/images/background.webp");
+    background-repeat: no-repeat;
+    background-position: cover;
+
+}
+.container {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+}
+.form-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #626262;
+    padding: 1rem;
+    border-radius: 20px 0px 0px 20px;
+}
+.form-image img {
+    width: 31rem;
+}
+.form {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 3rem;
+    border-radius: 0px 20px 20px 0px;
+}
+.form-header {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+.imput-group {
+    align-items: left;
+}
+.button {
+    display: flex;
+}
+.forget-button {
+    padding-top: 30px;
+    padding-right: 5px;
+}
+.forget-button button {
+    border: none;
+    background-color: #363636;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.forget-button button:hover {
+    background-color: lightcoral;
+}
+.forget-button button a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #ffffff;
+}
+.register-button {
+    padding-top: 30px;
+    padding-left: 5px;
+}
+.register-button button {
+    border: none;
+    background-color: #363636;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.register-button button:hover {
+    background-color: lightcoral;
+}
+.register-button button a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #ffffff;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-blend-mode: luminosity;
+}
+.nada {
+    text-align: left;
+}
+.input-box {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+}
+.input-box input{
+    height: 30px;
+    flex: 0 0 200px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+}
+.input-box label {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.input-box ::placeholder {
+    padding-left: 5px;
+}
