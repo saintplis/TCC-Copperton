@@ -126,7 +126,7 @@ body {
     cursor: pointer;
 }
 .produtos_img{
-    background-image: url("/Inicio/imagens/Produtos/backgroud_produtos.jpg");
+    background-image: linear-gradient(to right, rgb(37, 37, 37), rgb(122, 122, 122));
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }

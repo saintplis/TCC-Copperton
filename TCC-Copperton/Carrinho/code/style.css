@@ -77,6 +77,23 @@ main {
   align-items: center;
   padding-left: 50px;
 }
+.desenvolvimento-principal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20.71vh;
+  margin-bottom: 20.71vh;
+  font-family: 'Noto Sans', 'Sans Serif';
+  justify-content: space-around;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.desenvolvimento-principal-estrutura {
+  display: flex;
+  flex-direction: column;
+  gap: 4.28vh;
+  width: 800px;
+}
 .cart {
   width: 600px;
   background-color: white;
@@ -84,6 +101,32 @@ main {
   border-radius: 10px;
   box-shadow: 0px 0px 10px lightgray;
   font-family: 'Noto Sans', 'Sans Serif';
+}
+.cart title {
+  display: flex;
+}
+.cart-description {
+  display: inline-block;
+  width: 700px;
+  height: 200px;
+}
+.cart-title h1{
+  padding-bottom: 40px;
+}
+.rating input {
+  display: none;
+}
+.rating label {
+  float: right;
+  font-size: 30px;
+  color: #ccc;
+  cursor: pointer;
+}
+.rating label:before {
+  content: "\2605";
+}
+.rating input:checked ~ label {
+  color: #FFC107;
 }
 .cart-header {
   text-align: center;
