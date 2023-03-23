@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap%27');
 * {
     margin: 0;
     padding: 0;
@@ -125,7 +126,43 @@ body {
     border-radius: 0 5px 5px 0;
     cursor: pointer;
 }
-.produtos_img{
+.oferta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url('/Inicio/imagens/background-test.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+.oferta-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 4.28vh;
+}
+.oferta-texto h2 {
+    font-family: 'Righteous', cursive;
+    font-size: 8.36vh;
+    font-weight: bold;
+    color: white;
+}
+.oferta img {
+    height: 75.91vh;
+}
+.oferta-string {
+    font-family: 'Righteous', cursive;
+    font-size: 3.5vh;
+    color: white;
+}
+.oferta-preco {
+    font-family: 'Righteous', cursive;
+    font-size: 5vh;
+    color: red;
+    font-weight: bold;
+}
+.produtos_img {
     background-image: linear-gradient(to right, rgb(37, 37, 37), rgb(122, 122, 122));
     background-repeat: no-repeat;
     background-size: 100% 100%;
