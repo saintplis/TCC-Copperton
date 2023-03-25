@@ -51,37 +51,37 @@
         <div class="form-container">
             <h1>Cadastro de Produtos</h1>
             <form>
-              <label>Nome do Produto:</label>
-              <input type="text" name="product-name">
-              <label>Descrição:</label>
-              <textarea name="product-description"></textarea>
-              <label>Preço:</label>
-              <input type="text" name="product-price">
-              <label>Categoria:</label>
-              <select name="product-category">
-                <option value="camisa">Camisa</option>
-                <option value="jaqueta">Jaqueta</option>
-                <option value="moletom">Moletom</option>
-                <option value="bone">Boné</option>
-                <option value="acessorios">Acessórios</option>
-                <option value="bandeirao">Bandeirão</option>
-                <option value="calca">Calça</option>
-                <option value="gorro">Gorro</option>
+              <label for="nome" >Nome do Produto:</label>
+              <input type="text" id="nome" name="nome">
+              <label for="descricao">Descrição:</label>
+              <textarea id="descricao" name="descricao"></textarea>
+              <label for="preco">Preço:</label>
+              <input type="number" id="preco" name="preco">
+              <label for="categoria">Categoria:</label>
+              <select name="categoria">
+                <option value="Camisa">Camisa</option>
+                <option value="Jaqueta">Jaqueta</option>
+                <option value="Moletom">Moletom</option>
+                <option value="Boné">Boné</option>
+                <option value="Acessórios">Acessórios</option>
+                <option value="Bandeirão">Bandeirão</option>
+                <option value="Calca">Calça</option>
+                <option value="Gorro">Gorro</option>
               </select>
-              <label>Estoque:</label>
-              <input type="text" name="product-stoke">
-              <label>Marca:</label>
-              <input type="text" name="product-brand">
-              <label>Código de Barras:</label>
-              <input type="text" name="product-code">
-              <label>Tamanho:</label>
-              <input type="text" name="product-size">
-              <label>Cor:</label>
-              <input type="text" name="product-color">
-              <label>Material:</label>
-              <input type="text" name="product-material">
-              <label>Imagem:</label>
-              <input type="file" name="product-image">
+              <label for="estoque">Estoque:</label>
+              <input type="text" id="estoque "name="estoque">
+              <label for="marca">Marca:</label>
+              <input type="text" id="marca" name="marca">
+              <label for="codigo">Código de Barras:</label>
+              <input type="text" id="codigo" name="codigo">
+              <label for="tamanho">Tamanho:</label>
+              <input type="text" id="tamanho" name="tamanho">
+              <label for="cor">Cor:</label>
+              <input type="text" id="cor" name="cor">
+              <label for="material">Material:</label>
+              <input type="text" id="material" name="material">
+              <label for="imagem">Imagem:</label>
+              <input type="file" id="imagem" name="imagem">
               <button type="submit">Cadastrar</button>
             </form>
           </div>
