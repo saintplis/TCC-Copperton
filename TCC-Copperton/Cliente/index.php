@@ -43,7 +43,9 @@
     $cpf = $_POST['cpf'];
     $rg = $_POST['rg'];
     $dtnasc = $_POST['dtnasc'];
+    $sexo = $_POST['sexo'];
     $estadocivil = $_POST['estadocivil'];
+    $email = $_POST['email'];
     $telefone1 = $_POST['telefone1'];
     $telefone2 = $_POST['telefone2'];
     $pais = $_POST['pais'];
@@ -53,8 +55,11 @@
     $numero = $_POST['numero'];
     $senha = $_POST['senha'];
 
-    $result = mysqli_query($conexao, "INSERT INTO tb_cliente(CLI_NOME,CLI_SOBRENOME,CLI_CPF,CLI_RG,CLI_DTNASC,CLI_ESTADOCIVIL,CLI_TELEFONE1,CLI_TELEFONE2,CLI_PAIS,CLI_ESTADO,CLI_CIDADE,CLI_ENDERECO,CLI_NUMERO)
-    VALUES ('$nome','$sobrenome','$cpf','$rg','$dtnasc','$estadocivil','$telefone1','$telefone2','$pais','$estado','$cidade','$endereco','$numero')");
+    $result = mysqli_query($conexao, "INSERT INTO tb_cliente(CLI_NOME,CLI_SOBRENOME,CLI_CPF,CLI_RG,CLI_DTNASC,CLI_SEXO,CLI_ESTADOCIVIL,CLI_EMAIL,CLI_TELEFONE1,CLI_TELEFONE2,CLI_PAIS,CLI_ESTADO,CLI_CIDADE,CLI_ENDERECO,CLI_NUMERO)
+    VALUES ('$nome','$sobrenome','$cpf','$rg','$dtnasc','$sexo','$estadocivil','$email','$telefone1','$telefone2','$pais','$estado','$cidade','$endereco','$numero')");
+
+    $result = mysqli_query($conexao, "INSERT INTO tb_login(CLI_EMAIL,LOG_SENHA)
+    VALUES ('$email','$senha')");
   }
   
 ?>
