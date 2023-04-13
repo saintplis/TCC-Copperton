@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Produto</title>
+  </head>
+<body>
+    <header class="cabecalho">
+        <div class="cabecalho-menu">
+          <img src="/Carrinho/images/logotipo.png" class="cabecalho-logo">
+          <ul>
+            <li><a href="#">Produto <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown_menu">
+              <ul>
+                <li><a href="#">Camiseta</a></li>
+                <li><a href="#">Calça</a></li>
+                <li><a href="#">Moletom</a></li>
+                <li><a href="#">Jaqueta</a></li>
+                <li><a href="#">Boné</a></li>
+                <li><a href="#">Gorro</a></li>
+                <li><a href="#">Acessórios</a></li>
+              </ul>
+            </div>
+            </li>
+            <li><a href="#">Categoria <i class="fa fa-caret-down"></i></a>
+              <div class="dropdown_menu">
+                <ul>
+                  <li><a href="#">CS:GO</a></li>
+                  <li><a href="#">Valorant</a></li>
+                  <li><a href="#">Halo</a></li>
+                  <li><a href="#">Call of Duty</a></li>
+                  <li><a href="#">FIFA</a></li>
+                  <li><a href="#">Genshin</a></li>
+                  <li><a href="#">PUBG</a></li>
+                  <li><a href="#">Free Fire</a></li>
+                </ul>
+              </div>
+              </li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+      </header>
+      <main>
+        <div class="form-container">
+            <h1>Cadastro de Produtos</h1>
+            <form>
+              <label for="barcode">Código de Barras:</label>
+              <input type="number" id="barcode" name="barcode">
+              <label for="nome">Nome do Produto:</label>
+              <input type="text" id="nome" name="nome">
+              <label for="descricao">Descrição:</label>
+              <textarea id="descricao" name="descricao"></textarea>
+              <label for="preco">Preço:</label>
+              <input type="number" id="preco" name="preco">
+              <label for="categoria">Categoria:</label>
+              <select name="categoria">
+                <option value="Camisa">Camisa</option>
+                <option value="Jaqueta">Jaqueta</option>
+                <option value="Moletom">Moletom</option>
+                <option value="Boné">Boné</option>
+                <option value="Acessórios">Acessórios</option>
+                <option value="Bandeirão">Bandeirão</option>
+                <option value="Calca">Calça</option>
+                <option value="Gorro">Gorro</option>
+              </select>
+              <label for="estoque">ID Estoque:</label>
+              <input type="number" id="estoque "name="estoque">
+              <label for="fornecedor">CNPJ Fornecedor:</label>
+              <input type="number" id="fornecedor" name="fornecedor">
+              <label for="tamanho">Tamanho:</label>
+              <input type="text" id="tamanho" name="tamanho">
+              <label for="cor">Cor:</label>
+              <input type="text" id="cor" name="cor">
+              <label for="material">Material:</label>
+              <input type="text" id="material" name="material">
+              <label for="imagem">Imagem:</label>
+              <input type="file" id="imagem" name="imagem">
+              <div class="button-section">
+                <input type="submit" name="submit">
+              </div>
+            </form>
+          </div>
+      </main>
+</body>
+</html>
