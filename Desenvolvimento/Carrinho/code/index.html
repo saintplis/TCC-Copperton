@@ -1,241 +1,179 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Produto</title>
-  </head>
-<body>
-    <header class="cabecalho">
-        <div class="cabecalho-menu">
-          <img src="/Carrinho/images/logotipo.png" class="cabecalho-logo">
-          <ul>
-            <li><a href="#">Produto <i class="fa fa-caret-down"></i></a>
-            <div class="dropdown_menu">
-              <ul>
-                <li><a href="#">Camiseta</a></li>
-                <li><a href="#">Calça</a></li>
-                <li><a href="#">Moletom</a></li>
-                <li><a href="#">Jaqueta</a></li>
-                <li><a href="#">Boné</a></li>
-                <li><a href="#">Gorro</a></li>
-                <li><a href="#">Acessórios</a></li>
-              </ul>
-            </div>
-            </li>
-            <li><a href="#">Categoria <i class="fa fa-caret-down"></i></a>
-              <div class="dropdown_menu">
-                <ul>
-                  <li><a href="#">CS:GO</a></li>
-                  <li><a href="#">Valorant</a></li>
-                  <li><a href="#">Halo</a></li>
-                  <li><a href="#">Call of Duty</a></li>
-                  <li><a href="#">FIFA</a></li>
-                  <li><a href="#">Genshin</a></li>
-                  <li><a href="#">PUBG</a></li>
-                  <li><a href="#">Free Fire</a></li>
-                </ul>
-              </div>
-              </li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Contato</a></li>
-            <li><a href="#">Login</a></li>
-          </ul>
-        </div>
-      </header>
-      <main>
-        <section class="desenvolvimento-principal"> 
-          <div class="desenvolvimento-principal-estrutura">
-            <div class="cart">
-              <h3 class="cart-header">Carrinho de Compras</h3>
-              <ul class="cart-items">
-                <li class="cart-item">
-                  <img src="/Carrinho/images/bonefuria.png" alt="Camisa Vermelha">
-                  <div class="cart-item-info">
-                    <h4 class="cart-item-name">Boné Furia</h4>
-                    <p class="cart-item-price">R$ 50,00</p>
-                    <div class="cart-item-quantity">
-                      <button class="cart-item-quantity-button">-</button>
-                      <input type="text" value="1" disabled>
-                      <button class="cart-item-quantity-button">+</button>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Coppeton - Carrinho</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo">Copperton</a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+            <ul class="navbar">
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Carrinho</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Cadastro</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+            <div class='bx bx-user' id="user"></div>
+        </header>
+        <!-- Main -->
+        <script src="script.js"></script>
+        <main class="container">
+          <h1 class="header">
+            <i class='bx bx-cart'></i>Carrinho
+          </h1>
+          <div class="item-flex">
+            <section class="checkout">
+              <h2 class="section-header">Detalhes do Pagamento</h2>
+              <div class="pagamento-form">
+                <div class="pagamento-metodo">
+                  <button class="metodo selecionado">
+                    <i class='bx bx-credit-card'></i>
+                    <span>Cartão de Crédito</span>
+                  </button>
+                  <button class="metodo">
+                    <i class='bx bxl-paypal'></i>
+                    <span>Paypal</span>
+                  </button>
+                </div>
+                <form action="#">
+                  <div class="cartao-nome">
+                    <label for="cartao-nome" class="labels">Nome do Cartão</label>
+                    <input type="text" name="cartao-nome" id="cartao-nome" class="inputs">
+                  </div>
+                  <div class="cartao-numero">
+                    <label for="cartao-numero" class="labels">Número do Cartão</label>
+                    <input type="number" name="cartao-numero" id="cartao-numero" class="inputs">
+                  </div>
+                  <div class="input-flex">
+                    <div class="data-validade">
+                      <label for="data-validade" class="labels">Data de Validade</label>
+                      <div class="input-flex">
+                        <input type="number" name="dia" id="data-validade" class="inputs" placeholder="31" min="1" max="31">
+                        /
+                        <input type="number" name="mes" id="data-validade" class="inputs" placeholder="12" min="1" max="12">
+                      </div>
+                    </div>
+                    <div class="cvv">
+                      <label for="cvv" class="labels">CVV</label>
+                      <input type="number" name="cvv" id="cvv" class="inputs">
                     </div>
                   </div>
-                </li>
-              </ul>
-              <div class="cart-total">
-                <p class="cart-total-label">Total:</p>
-                <p class="cart-total-value">R$ 50,00</p>
+                </form>
               </div>
-              <button class="cart-checkout-button"><a href="#">Finalizar Compra</a></button>
-            </div>
-            </div>
-            <div class="cart-title">
-              <h1>Descrição do Produto</h1>
-              <p class="cart-description">
-                Este boné é o acessório perfeito para dar um toque de estilo ao seu look. Feito com materiais de alta qualidade, ele é resistente e durável, além de ser confortável de usar durante todo o dia. Com um design moderno e elegante, ele combina com qualquer roupa e é perfeito para diversas ocasiões. A aba curva ajuda a proteger o rosto do sol, enquanto a parte traseira ajustável permite que ele se adapte perfeitamente à sua cabeça. Com este boné, você pode se sentir confiante e na moda ao mesmo tempo. Adquira agora mesmo e adicione um toque de estilo ao seu guarda-roupa!
-              </p>
-              <div class="rating">
-                <input type="radio" name="rating" id="star5">
-                <label for="star5"></label>
-                <input type="radio" name="rating" id="star4">
-                <label for="star4"></label>
-                <input type="radio" name="rating" id="star3">
-                <label for="star3"></label>
-                <input type="radio" name="rating" id="star2">
-                <label for="star2"></label>
-                <input type="radio" name="rating" id="star1">
-                <label for="star1"></label>
+              <button class="total">
+                <b>Total a pagar:</b> R$<span id="total-pagar">149,80</span>
+              </button>
+            </section>
+            <section class="carrinho">
+              <div class="carrinho-itens">
+                <h2 class="section-header">Ordem de Produtos</h2>
+                <div class="produto">
+                  <div class="item">
+                    <div class="img-box">
+                      <img src="/Inicio/imagens/camiseta-cloud9.png" alt="Camiseta Cloud9" class="produto-imagem">
+                    </div>
+                    <div class="detalhes">
+                      <h4 class="produto-nome">Camiseta Cloud9</h4>
+                      <div class="produto-info">
+                        <div class="produto-quantidade">
+                          <button id="remover">
+                            <i class='bx bx-minus'></i>
+                          </button>
+                          <span id="quantidade">1</span>
+                          <button id="acrescentar">
+                            <i class='bx bx-plus'></i>
+                          </button>
+                        </div>
+                        <div class="preco">
+                          R$ <span id="preco">59,90</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button id="produto-excluir">
+                      <i class='bx bx-x'></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="produto">
+                  <div class="item">
+                    <div class="img-box">
+                      <img src="/Inicio/imagens/moletom-navi.png" alt="Moletom Navi" class="produto-imagem">
+                    </div>
+                    <div class="detalhes">
+                      <h4 class="produto-nome">Moletom Navi</h4>
+                      <div class="produto-info">
+                        <div class="produto-quantidade">
+                          <button id="remover">
+                            <i class='bx bx-minus'></i>
+                          </button>
+                          <span id="quantidade">1</span>
+                          <button id="acrescentar">
+                            <i class='bx bx-plus'></i>
+                          </button>
+                        </div>
+                        <div class="preco">
+                          R$ <span id="preco">89,90</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button id="produto-excluir">
+                      <i class='bx bx-x'></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+        <!-- Footer -->
+        <section class="footer">
+          <div class="footer-container">
+              <div class="footer-box">
+                <h4>Sobre</h4>
+                <ul class="footer-list">
+                  <li><a href="/Sobre/code/index.html">sobre nós</a></li>
+                  <li><a href="/Sobre/code/index.html">nossos serviços</a></li>
+                  <li><a href="/Sobre/code/index.html">política de privacidade</a></li>
+                  <li><a href="/Sobre/code/index.html">programa de afiliação</a></li>
+                </ul>
+              </div>
+              <div class="footer-box">
+                <h4>Ajuda</h4>
+                <ul class="footer-list">
+                  <li><a href="/Sobre/code/index.html">FAQ</a></li>
+                  <li><a href="/Sobre/code/index.html">entrega</a></li>
+                  <li><a href="/Sobre/code/index.html">atendente</a></li>
+                  <li><a href="/Sobre/code/index.html">opções de pagamento</a></li>
+                </ul>
+              </div>
+              <div class="footer-box">
+                <h4>Entrega</h4>
+                <ul class="footer-list">
+                  <li><a href="/Sobre/code/index.html">rastreamento</a></li>
+                  <li><a href="/Sobre/code/index.html">QR Code</a></li>
+                  <li><a href="/Sobre/code/index.html">entrega rápida</a></li>
+                  <li><a href="/Sobre/code/index.html">tipos de frete</a></li>
+                </ul>
+              </div>
+              <div class="footer-box">
+                <h4>Social</h4>
+                <ul class="footer-list">
+                  <li><a href="https://www.instagram.com/copperton_ltda/"><i class="fa fa-instagram"></i> Instagram</a></li>
+                  <li><a href="https://twitter.com/Copperton_LTDA "><i class="fa fa-twitter"></i> Twitter</a></li>
+                  <li><a href="https://www.linkedin.com/in/copperton-ltda-01292126a/"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                  <li><a href="https://www.facebook.com/profile.php?id=100091055314736"><i class="fa fa-facebook"></i> Facebook</a></li>
+                </ul>
               </div>
           </div>
       </section>
-      <section class="more-rating">
-        <h1>Avaliações</h1>
-        <div class="more-rating-div">
-          <img src="/Carrinho/images/user.png">
-          <h2>Daniel Gomes</h2>
-          <div class="more-rating-star">
-            <input type="radio" name="more-rating-star" id="star5">
-            <label for="star5"></label>
-            <input type="radio" name="more-rating-star" id="star4">
-            <label for="star4"></label>
-            <input type="radio" name="more-rating-star" id="star3">
-            <label for="star3"></label>
-            <input type="radio" name="more-rating-star" id="star2">
-            <label for="star2"></label>
-            <input type="radio" name="more-rating-star" id="star1">
-            <label for="star1"></label>
-          </div>
-        </div>
-        <div class="more-rating-text">
-          <p>Eu comprei este boné em particular há algumas semanas e tenho usado com frequência desde então. Posso dizer que estou muito satisfeito com a qualidade do produto. O material é resistente e durável, e o boné se encaixa perfeitamente na minha cabeça.
-            <br><br>
-            Além disso, o design é muito elegante e combina com várias roupas do meu guarda-roupa. Eu realmente gosto da cor preta com o logotipo branco, que dá um toque moderno e sofisticado ao boné.
-            <br><br>
-            O único ponto negativo que eu posso mencionar é que a aba é um pouco mais curta do que eu gostaria, mas não é algo que me incomode muito. No geral, eu recomendo este boné para quem procura um acessório de qualidade e estilo.</p>
-        </div>
-        <div class="more-rating-div">
-          <img src="/Carrinho/images/user.png">
-          <h2>Mario Júnior</h2>
-          <div class="more-rating-star">
-            <input type="radio" name="more-rating-star" id="star5">
-            <label for="star5"></label>
-            <input type="radio" name="more-rating-star" id="star4">
-            <label for="star4"></label>
-            <input type="radio" name="more-rating-star" id="star3">
-            <label for="star3"></label>
-            <input type="radio" name="more-rating-star" id="star2">
-            <label for="star2"></label>
-            <input type="radio" name="more-rating-star" id="star1">
-            <label for="star1"></label>
-          </div>
-        </div>
-        <div class="more-rating-text">
-          <p>Eu comprei este boné em particular há algumas semanas e tenho usado com frequência desde então. Posso dizer que estou muito satisfeito com a qualidade do produto. O material é resistente e durável, e o boné se encaixa perfeitamente na minha cabeça.
-            <br><br>
-            Além disso, o design é muito elegante e combina com várias roupas do meu guarda-roupa. Eu realmente gosto da cor preta com o logotipo branco, que dá um toque moderno e sofisticado ao boné.
-            <br><br>
-            O único ponto negativo que eu posso mencionar é que a aba é um pouco mais curta do que eu gostaria, mas não é algo que me incomode muito. No geral, eu recomendo este boné para quem procura um acessório de qualidade e estilo.</p>
-        </div>
-        <div class="more-rating-div">
-          <img src="/Carrinho/images/user.png">
-          <h2>Heitor Carvalho da Silva</h2>
-          <div class="more-rating-star">
-            <input type="radio" name="more-rating-star" id="star5">
-            <label for="star5"></label>
-            <input type="radio" name="more-rating-star" id="star4">
-            <label for="star4"></label>
-            <input type="radio" name="more-rating-star" id="star3">
-            <label for="star3"></label>
-            <input type="radio" name="more-rating-star" id="star2">
-            <label for="star2"></label>
-            <input type="radio" name="more-rating-star" id="star1">
-            <label for="star1"></label>
-          </div>
-        </div>
-        <div class="more-rating-text">
-          <p>Eu comprei este boné em particular há algumas semanas e tenho usado com frequência desde então. Posso dizer que estou muito satisfeito com a qualidade do produto. O material é resistente e durável, e o boné se encaixa perfeitamente na minha cabeça.
-            <br><br>
-            Além disso, o design é muito elegante e combina com várias roupas do meu guarda-roupa. Eu realmente gosto da cor preta com o logotipo branco, que dá um toque moderno e sofisticado ao boné.
-            <br><br>
-            O único ponto negativo que eu posso mencionar é que a aba é um pouco mais curta do que eu gostaria, mas não é algo que me incomode muito. No geral, eu recomendo este boné para quem procura um acessório de qualidade e estilo.</p>
-        </div>
-        <div class="rating-form-div">
-          <form class="rating-form">
-            <h2>Avalie este produto</h2>
-            <div class="form-group">
-              <label for="name">Nome:</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">E-mail:</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="rating">Avaliação:</label>
-              <select id="rating" name="rating" required>
-                <option value="">Selecione uma opção</option>
-                <option value="5">5 estrelas</option>
-                <option value="4">4 estrelas</option>
-                <option value="3">3 estrelas</option>
-                <option value="2">2 estrelas</option>
-                <option value="1">1 estrela</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="review">Comentário:</label>
-              <textarea id="review" name="review" rows="5" required></textarea>
-            </div class="form-submit">
-            <button type="submit">Enviar</button>
-          </form>
-        </div>
-      </section>
-      </main>
-      <footer class="rodape">
-        <div class="container">
-          <div class="rodape-linha">
-            <div class="rodape-opcoes">
-              <h4>Sobre</h4>
-              <ul class="rodape-lista">
-                <li><a href="">sobre nós</a></li>
-                <li><a href="">nossos serviços</a></li>
-                <li><a href="">política de privacidade</a></li>
-                <li><a href="">programa de afiliação</a></li>
-              </ul>
-            </div>
-            <div class="rodape-opcoes">
-              <h4>Ajuda</h4>
-              <ul class="rodape-lista">
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">entrega</a></li>
-                <li><a href="#">atendente</a></li>
-                <li><a href="#">opções de pagamento</a></li>
-              </ul>
-            </div>
-            <div class="rodape-opcoes">
-              <h4>Entrega</h4>
-              <ul class="rodape-lista">
-                <li><a href="">rastreamento</a></li>
-                <li><a href="">QR Code</a></li>
-                <li><a href="">entrega rápida</a></li>
-                <li><a href="">tipos de frete</a></li>
-              </ul>
-            </div>
-            <div class="rodape-opcoes">
-              <h4>Social</h4>
-              <ul class="rodape-lista">
-                <li><a href="https://www.instagram.com/copperton_ltda/"><i class="fa fa-instagram"></i> Instagram</a></li>
-            <li><a href="https://twitter.com/Copperton_LTDA "><i class="fa fa-twitter"></i> Twitter</a></li>
-            <li><a href="https://www.linkedin.com/in/copperton-ltda-01292126a/"><i class="fa fa-linkedin"></i> Linkedin</a></li>
-            <li><a href="https://www.facebook.com/profile.php?id=100091055314736"><i class="fa fa-facebook"></i> Facebook</a></li>
-              </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-</body>
+  </body>
 </html>
