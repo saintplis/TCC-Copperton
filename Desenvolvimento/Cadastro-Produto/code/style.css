@@ -151,7 +151,6 @@ form .local .fields .inputs{
     color: black;
 }
 .inputs input[type="file"]{
-    text-transform: uppercase;
     text-align: center;
     display: block;
     cursor: pointer;

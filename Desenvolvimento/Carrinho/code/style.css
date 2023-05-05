@@ -15,6 +15,8 @@
   --big-font:5rem;
   --h2-font:2.25rem;
   --p-font:0.9rem;
+  --px: 60px;
+  --radius: 5px;
 }
 *::selection{
   background: var(--main-color);
@@ -59,8 +61,86 @@ header{
   cursor: pointer;
   display: none;
 }
-main{
+section{
+  padding-left: 70px;
+  padding-right: 70px;
+}
+.container{
   margin-top: 150px;
+  max-width: 1440px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.header{
+  font-size: 28px;
+  font-weight: 600;
+  color: #ff2525;
+  border-bottom: 1px solid gray;
+  padding: 20px var(--px);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header i{
+  font-size: 40px;
+}
+.item-flex{
+  display: flex;
+  flex-grow: 1;
+}
+.checkout{
+  width: 70%;
+  padding-top: 40px;
+  border-right: 1px solid gray;
+}
+.carrinho{
+  padding-top: 40px;
+}
+.section-header{
+  color: var(--text-color);
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 500;
+}
+.pagamento-form{
+  margin-bottom: 40px;
+}
+.pagamento-metodo{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+.pagamento-metodo button{
+  background: none;
+  border: 1px solid var(--text-color);
+  border-radius: 7px;
+  padding: 15px 30px;
+  color: var(--text-color);
+  font-size: 17px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+.inputs input{
+  height: 42px;
+  margin: 8px 0;
+  padding: 0 15px;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-size: var(--p-font);
+  font-weight: 400;
+  color: var(--background-color);
+}
+form .inputs{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 4px 0;
 }
 .produto-imagem{
   width: 80px;

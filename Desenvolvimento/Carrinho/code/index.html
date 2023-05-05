@@ -35,11 +35,11 @@
               <h2 class="section-header">Detalhes do Pagamento</h2>
               <div class="pagamento-form">
                 <div class="pagamento-metodo">
-                  <button class="metodo selecionado">
+                  <button class="js-click">
                     <i class='bx bx-credit-card'></i>
                     <span>Cartão de Crédito</span>
                   </button>
-                  <button class="metodo">
+                  <button class="js-click">
                     <i class='bx bxl-paypal'></i>
                     <span>Paypal</span>
                   </button>
@@ -128,6 +128,29 @@
                     <button id="produto-excluir">
                       <i class='bx bx-x'></i>
                     </button>
+                  </div>
+                </div>
+              </div>
+              <div class="wrapper">
+                <div class="cupom-desconto">
+                  <label for="cupom-desconto" class="labels">Cupom de Desconto</label>
+                  <div class="wrapper-flex">
+                    <input type="text" name="cupom-desconto" id="cupom-desconto" class="inputs">
+                    <button class="cupom-aplicar">Aplicar</button>
+                  </div>
+                </div>
+                <div class="extrato">
+                  <div class="extrato-subtotal">
+                    <span>Subtotal</span><span>R$<span id="extrato-subtotal">149,80</span></span>
+                  </div>
+                  <div class="extrato-taxas">
+                    <span>Taxas</span><span>R$<span id="extrato-taxas">0,10</span></span>
+                  </div>
+                  <div class="extrato-desconto">
+                    <span>Desconto</span><span>R$<span id="extrato-desconto">0,00</span></span>
+                  </div>
+                  <div class="extrato-total">
+                    <span>Total</span><span>R$<span id="extrato-total">149,90</span></span>
                   </div>
                 </div>
               </div>
