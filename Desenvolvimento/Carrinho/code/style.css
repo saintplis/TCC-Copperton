@@ -61,14 +61,9 @@ header{
   cursor: pointer;
   display: none;
 }
-section{
-  padding-left: 70px;
-  padding-right: 70px;
-}
 .container{
-  margin-top: 150px;
-  max-width: 1440px;
-  min-height: 100vh;
+  margin-top: 130px;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
 }
@@ -90,12 +85,9 @@ section{
   flex-grow: 1;
 }
 .checkout{
-  width: 70%;
-  padding-top: 40px;
+  width: 90%;
+  padding: 40px var(--px);
   border-right: 1px solid gray;
-}
-.carrinho{
-  padding-top: 40px;
 }
 .section-header{
   color: var(--text-color);
@@ -125,25 +117,176 @@ section{
   gap: 20px;
   cursor: pointer;
 }
-.inputs input{
+.pagamento-metodo button:hover{
+  background: var(--main-color);
+  transform: scale(0.99);
+}
+.inputs{
   height: 42px;
   margin: 8px 0;
-  padding: 0 15px;
   outline: none;
-  border: 1px solid gray;
+  border-style: none;
   border-radius: 5px;
-  font-size: var(--p-font);
-  font-weight: 400;
   color: var(--background-color);
 }
-form .inputs{
+.inputs:focus{
+  border: 1.5px solid var(--main-color);
+}
+.pagamento-form input{
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 4px 0;
+  padding: 10px 15px;
+  font-size: 18px;
+  font-weight: 500;
 }
-.produto-imagem{
+.cartao-nome, .cartao-numero{
+  margin-bottom: 20px;
+}
+.cartao-numero input, .cvv input{
+  letter-spacing: 3px;
+}
+.input-flex{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.input-flex .data-validade, .input-flex .cvv{
+  width: 50%;
+}
+.data-validade .input-flex{
+  color: lightgray;
+}
+.data-validade .input-flex input{
+  text-align: center;
+}
+.pagar{
+  background-color: var(--main-color);
+  width: 48%;
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 13px 45px;
+  border-style: none;
+  border-radius: 5px;
+  border: 1px solid var(--text-color);
+}
+.pagar:hover{
+  transform: scale(0.95);
+}
+.pagar b{
+  margin-right: 10px;
+}
+.carrinho{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.carrinho-itens{
+  padding: 40px var(--px);
+  margin-bottom: auto;
+}
+.ordem-imagem{
   width: 80px;
+  border-radius: var(--radius);
+}
+.ordem-produto:not(:last-child){
+  margin-bottom: 20px;
+}
+.ordem-item{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.detalhes-nome{
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.detalhes-info{
+  display: flex;
+  gap: 20px;
+}
+.detalhes-quantidade{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.detalhes-quantidade button{
+  background: none;
+  color: var(--text-color);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: none;
+  border-radius: 2px;
+  border: 1px solid var(--text-color);
+}
+.detalhes-quantidade button i{
+  font-size: 10px;
+}
+.detalhes-quantidade button:active{
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+}
+.excluir{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border-style: none;
+}
+.excluir i{
+  font-size: 25px;
+  color: var(--text-color);
+}
+.excluir i:hover{
+  color: var(--main-color);
+}
+.cupom-desconto{
+  padding: 40px 60px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+.cupom-flex{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.cupom-flex input{
+  padding: 12px 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  height: 42px;
+}
+.cupom-aplicar{
+  padding: 10px 25px;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  background: var(--main-color);
+  border-radius: 5px;
+}
+.cupom-aplicar:hover{
+  transform: scale(0.95);
+}
+.extrato{
+  padding: 40px var(--px); 
+}
+.extrato > div{
+  display: flex;
+  justify-content: space-between;
+}
+.extrato > div:not(:last-child){
+  margin-bottom: 10px;
+}
+.extrato-total{
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
 }
 .footer {
   background-color: #40444e;

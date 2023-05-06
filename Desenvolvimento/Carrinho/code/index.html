@@ -35,11 +35,11 @@
               <h2 class="section-header">Detalhes do Pagamento</h2>
               <div class="pagamento-form">
                 <div class="pagamento-metodo">
-                  <button class="js-click">
+                  <button>
                     <i class='bx bx-credit-card'></i>
                     <span>Cartão de Crédito</span>
                   </button>
-                  <button class="js-click">
+                  <button>
                     <i class='bx bxl-paypal'></i>
                     <span>Paypal</span>
                   </button>
@@ -69,22 +69,22 @@
                   </div>
                 </form>
               </div>
-              <button class="total">
-                <b>Total a pagar:</b> R$<span id="total-pagar">149,80</span>
+              <button class="pagar">
+                <b>Pagar:</b> R$<span id="pagar-total">149,80</span>
               </button>
             </section>
             <section class="carrinho">
               <div class="carrinho-itens">
                 <h2 class="section-header">Ordem de Produtos</h2>
-                <div class="produto">
-                  <div class="item">
+                <div class="ordem-produto">
+                  <div class="ordem-item">
                     <div class="img-box">
-                      <img src="/Inicio/imagens/camiseta-cloud9.png" alt="Camiseta Cloud9" class="produto-imagem">
+                      <img src="/Carrinho/images/camiseta-cloud9.png" alt="Camiseta Cloud9" class="ordem-imagem">
                     </div>
-                    <div class="detalhes">
-                      <h4 class="produto-nome">Camiseta Cloud9</h4>
-                      <div class="produto-info">
-                        <div class="produto-quantidade">
+                    <div class="ordem-detalhes">
+                      <h4 class="detalhes-nome">Camiseta Cloud9</h4>
+                      <div class="detalhes-info">
+                        <div class="detalhes-quantidade">
                           <button id="remover">
                             <i class='bx bx-minus'></i>
                           </button>
@@ -93,25 +93,25 @@
                             <i class='bx bx-plus'></i>
                           </button>
                         </div>
-                        <div class="preco">
+                        <div class="detalhes-preco">
                           R$ <span id="preco">59,90</span>
                         </div>
                       </div>
                     </div>
-                    <button id="produto-excluir">
+                    <button class="excluir">
                       <i class='bx bx-x'></i>
                     </button>
                   </div>
                 </div>
-                <div class="produto">
-                  <div class="item">
+                <div class="ordem-produto">
+                  <div class="ordem-item">
                     <div class="img-box">
-                      <img src="/Inicio/imagens/moletom-navi.png" alt="Moletom Navi" class="produto-imagem">
+                      <img src="/Carrinho/images/moletom-navi.png" alt="Moletom Navi" class="ordem-imagem">
                     </div>
-                    <div class="detalhes">
-                      <h4 class="produto-nome">Moletom Navi</h4>
-                      <div class="produto-info">
-                        <div class="produto-quantidade">
+                    <div class="ordem-detalhes">
+                      <h4 class="detalhes-nome">Moletom Navi</h4>
+                      <div class="detalhes-info">
+                        <div class="detalhes-quantidade">
                           <button id="remover">
                             <i class='bx bx-minus'></i>
                           </button>
@@ -120,37 +120,37 @@
                             <i class='bx bx-plus'></i>
                           </button>
                         </div>
-                        <div class="preco">
+                        <div class="detalhes-preco">
                           R$ <span id="preco">89,90</span>
                         </div>
                       </div>
                     </div>
-                    <button id="produto-excluir">
+                    <button class="excluir">
                       <i class='bx bx-x'></i>
                     </button>
                   </div>
                 </div>
               </div>
-              <div class="wrapper">
+              <div class="cupom">
                 <div class="cupom-desconto">
                   <label for="cupom-desconto" class="labels">Cupom de Desconto</label>
-                  <div class="wrapper-flex">
+                  <div class="cupom-flex">
                     <input type="text" name="cupom-desconto" id="cupom-desconto" class="inputs">
                     <button class="cupom-aplicar">Aplicar</button>
                   </div>
                 </div>
                 <div class="extrato">
                   <div class="extrato-subtotal">
-                    <span>Subtotal</span><span>R$<span id="extrato-subtotal">149,80</span></span>
+                    <span>Subtotal:</span><span>R$ <span id="extrato-subtotal">149,80</span></span>
                   </div>
                   <div class="extrato-taxas">
-                    <span>Taxas</span><span>R$<span id="extrato-taxas">0,10</span></span>
+                    <span>Taxas:</span><span>R$ <span id="extrato-taxas">0,10</span></span>
                   </div>
                   <div class="extrato-desconto">
-                    <span>Desconto</span><span>R$<span id="extrato-desconto">0,00</span></span>
+                    <span>Desconto:</span><span>R$ <span id="extrato-desconto">0,00</span></span>
                   </div>
                   <div class="extrato-total">
-                    <span>Total</span><span>R$<span id="extrato-total">149,90</span></span>
+                    <span>Total:</span><span>R$ <span id="extrato-total">149,90</span></span>
                   </div>
                 </div>
               </div>
