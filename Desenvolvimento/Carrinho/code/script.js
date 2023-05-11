@@ -59,3 +59,9 @@ const totalCalc = function(){
     totalElem.textContent = total.toFixed(2);
     pagarBtn.textContent = total.toFixed(2);
 }
+function mudarCor1 () {
+    document.getElementById("botao1").style.backgroundColor = "#ff2525";   
+}
+function mudarCor2 () {
+    document.getElementById("botao2").style.backgroundColor = "#ff2525";   
+}
