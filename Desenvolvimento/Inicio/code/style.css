@@ -59,6 +59,9 @@ header{
     cursor: pointer;
     display: none;
 }
+.logout a{
+    color:red;
+}
 section{
     padding: 70px 7%;
 }

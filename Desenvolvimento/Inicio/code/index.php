@@ -1,8 +1,5 @@
 <?php
-
-if(!isset($_SESSION)){
-    session_start();
-}
+include('protect.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +25,16 @@ if(!isset($_SESSION)){
                 <li><a href="/Cadastro-Cliente/code/index.html">Cadastro</a></li>
                 <li><a href="/Login/code/index.html">Login</a></li>
             </ul>
-            <div><?php echo $_SESSION['CLI_NOME']; ?></div>
+            <div class="logout">
+            <?php 
+            if(!isset($_SESSION['CLI_NOME'])) { 
+                echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>'; 
+            } 
+            else { 
+                echo $_SESSION['CLI_NOME'] . ' | ' . '<a href="logout.php">Sair</a>'; 
+            } 
+            ?>
+            </div>
         </header>
         <!-- Home -->
         <section class="home" id="home">
