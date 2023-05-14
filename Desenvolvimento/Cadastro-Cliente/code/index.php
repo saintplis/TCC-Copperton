@@ -56,10 +56,10 @@
         $numero = $_POST['numero'];
         $senha = $_POST['senha'];
 
-        $result = mysqli_query($conexao, "INSERT INTO tb_cliente(CLI_NOME,CLI_SOBRENOME,CLI_CPF,CLI_DTNASC,CLI_SEXO,CLI_ESTADOCIVIL,CLI_EMAIL,CLI_TELEFONE1,CLI_TELEFONE2,CLI_CEP,CLI_PAIS,CLI_UF,CLI_CIDADE,CLI_RUA,CLI_NUMERO) 
+        $result = mysqli_query($conexao, "INSERT INTO tb_cliente(CLI_NOME,CLI_SOBRENOME,CLI_CPF,CLI_DTNASC,CLI_SEXO,CLI_ESTADOCIVIL,CLI_EMAIL,CLI_TELEFONE1,CLI_TELEFONE2,CLI_PAIS,CLI_UF,CLI_CIDADE,CLI_CEP,CLI_BAIRRO,CLI_RUA,CLI_NUMERO) 
         VALUES ('$nome','$sobrenome','$cpf','$dtnasc','$sexo','$estadocivil','$email','$telefone1','$telefone2','$pais','$uf','$cidade','$cep','$bairro','$rua','$numero')");
-        $result = mysqli_query($conexao, "INSERT INTO tb_login(CLI_EMAIL,LOG_SENHA)
-        VALUES ('$email','$senha')");
+        $result = mysqli_query($conexao, "INSERT INTO tb_login(CLI_NOME,CLI_EMAIL,CLI_SENHA)
+        VALUES ('$nome','$email','$senha')");
     }
 ?>
 <!DOCTYPE html>
