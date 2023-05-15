@@ -1,0 +1,220 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --main-color:#ff2525;
+    --text-color:#fff;
+    --background-color:#1e1c2a;
+    --backgroud-color-white:#f2f2f2;
+    --big-font:5rem;
+    --h2-font:2.25rem;
+    --h3-font: 1.25rem;
+    --p-font:0.9rem;
+}
+*::selection{
+    background: var(--main-color);
+    color: #fff;
+}
+body{
+    color: var(--text-color);
+    background: var(--background-color);
+}
+header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 170px;
+    background: var(--background-color);
+}
+.logo{
+    color: var(--main-color);
+    font-weight: 600;
+    font-size: 2.4rem;
+}
+.navbar{
+    display: flex;
+}
+.navbar a{
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+.navbar a:hover{
+    color: var(--main-color);
+    transition: .4s;
+}
+#menu-icon{
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+}
+section{
+    padding: 70px 7%;
+}
+.container{
+    margin-top: 70px;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    position: relative;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+}
+.container h2{
+    font-size: var(--h2-font);
+    font-weight: 600;
+    color: var(--main-color);
+    position: relative;
+}
+.container h2::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 125px;
+    background-color: var(--main-color);
+    border-radius: 8px;
+}
+.container form{
+    position: relative;
+    min-height: 490px;
+    background-color: var(--text-color);
+    margin-top: 16px;
+}
+.container form .id{
+    margin-top: 30px;
+}
+.container form .local{
+    margin-top: 10px;
+}
+.container form .expecificacao{
+    margin-top: 10px;
+}
+.container form .title{
+    font-size: var(--h3-font);
+    font-weight: 600;
+    margin: 6px 0;
+    display: block;
+    margin-bottom: 8px;
+}
+.container form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+form .fields .inputs{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 3 - 15px);
+    margin: 4px 0;
+}
+form .local .fields .inputs{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 2 - 15px);
+    margin: 4px 0;
+}
+.inputs input, select, textarea{
+    height: 42px;
+    margin: 8px 0;
+    padding: 0 15px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: var(--p-font);
+    font-weight: 400;
+    color: var(--background-color);
+}
+.inputs label{
+    font-size: var(--p-font);
+    font-weight: 500;
+}
+.inputs input[type="date"]{
+    color: #707070;
+}
+.inputs input[type="date"]:valid{
+    color: black;
+}
+.inputs input[type="file"]{
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    display: flex;
+    padding-top: 8px;
+}
+.container form button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    background-color: var(--main-color);
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    border-radius: 5px;
+    margin: 25px 0;
+    cursor: pointer;
+}
+form button:hover{
+    opacity: 80%;
+}
+form button i{
+    margin: 0 6px;
+}
+.footer {
+    background-color: #40444e;
+    padding: 9.38vh 0;
+}
+.footer-container {
+    margin-left: 6.70vh;
+    margin-right: 6.70vh;
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.footer-box {
+    width: 25%;
+    padding: 0 2.01vh;
+}
+.footer-box h4 {
+    font-weight: 600;
+    font-size: 2.41vh;
+    color: white;
+    text-transform: capitalize;
+    position: relative;
+    margin-bottom: 2.14vh;
+    padding-bottom: 2.14vh;
+    border-bottom: 0.093vh solid var(--main-color);
+}
+.footer-box ul li a {
+    font-weight: 400;
+    font-size: 2.14vh;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+}
+.footer-box ul li a:hover {
+    color: var(--main-color);
+    transition: 0.5s;
+}
