@@ -16,14 +16,14 @@ include('protect.php');
     </head>
     <body>
         <header>
-            <a href="#" class="logo">Copperton</a>
+            <a href="http://localhost/desenvolvimento/Inicio/code/index.php" class="logo">Copperton</a>
             <div class="bx bx-menu" id="menu-icon"></div>
             <ul class="navbar">
-                <li><a href="/Inicio/code/index.html">Produtos</a></li>
-                <li><a href="/Carrinho/code/index.html">Carrinho</a></li>
-                <li><a href="/Sobre/code/index.html">Sobre</a></li>
-                <li><a href="/Cadastro-Cliente/code/index.html">Cadastro</a></li>
-                <li><a href="/Login/code/index.html">Login</a></li>
+                <li><a href="http://localhost/desenvolvimento/Inicio/code/index.php">Produtos</a></li>
+                <li><a href="http://localhost/desenvolvimento/Carrinho/code/index.php">Carrinho</a></li>
+                <li><a href="http://localhost/desenvolvimento/Sobre/code/index.php">Sobre</a></li>
+                <li><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cadastro</a></li>
+                <li><a href="http://localhost/desenvolvimento/Login/code/index.php">Login</a></li>
             </ul>
             <div class="logout">
             <?php 
@@ -57,7 +57,7 @@ include('protect.php');
                 <h2>Camiseta Astralis</h2>
                 <p>Arrase no estilo e torça com a fé inabalavel de seu time.</p>
                 <h3>R$ 79,90</h3>
-                <a href="/Produto/code/index.html" class="promocao-button">Compre Agora</a>
+                <a href="http://localhost/desenvolvimento/Produto/code/index.php" class="promocao-button">Compre Agora</a>
             </div>
         </section>
         <!-- Produto -->
@@ -67,7 +67,7 @@ include('protect.php');
             <h2>Desfrute de uma variedade de coleções</h2>
             </div>
             <div class="produto-container">
-                <a href="/Produto/code/index.html">
+                <a href="http://localhost/desenvolvimento/Produto/code/index.php">
                 <div class="produto-container-box">
                     <div class="produto-container-box-img">
                         <img src="http://localhost/desenvolvimento/Inicio/imagens/camiseta-cloud9.png">
@@ -78,7 +78,7 @@ include('protect.php');
                     <i class='bx bx-cart'></i>
                 </div>
                 </a>
-                <a href="/Produto/code/index.html">
+                <a href="http://localhost/desenvolvimento/Produto/code/index.php">
                 <div class="produto-container-box">
                     <div class="produto-container-box-img">
                         <img src="http://localhost/desenvolvimento/Inicio/imagens/moletom-navi.png">
@@ -89,7 +89,7 @@ include('protect.php');
                     <i class='bx bx-cart'></i>
                 </div>
                 </a>
-                <a href="/Produto/code/index.html">
+                <a href="http://localhost/desenvolvimento/Produto/code/index.php">
                 <div class="produto-container-box">
                     <div class="produto-container-box-img">
                         <img src="http://localhost/desenvolvimento/Inicio/imagens/calca-mibr.png">

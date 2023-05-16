@@ -61,6 +61,9 @@ header{
   cursor: pointer;
   display: none;
 }
+.logout a{
+  color: var(--main-color);
+}
 .container{
   margin-top: 130px;
   min-height: 90vh;

@@ -53,15 +53,15 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     </head>
     <body>
-    <header>
-            <a href="#" class="logo">Copperton</a>
+        <header>
+            <a href="http://localhost/desenvolvimento/Inicio/code/index.php" class="logo">Copperton</a>
             <div class="bx bx-menu" id="menu-icon"></div>
             <ul class="navbar">
-                <li><a href="/Inicio/code/index.html">Produtos</a></li>
-                <li><a href="/Carrinho/code/index.html">Carrinho</a></li>
-                <li><a href="/Sobre/code/index.html">Sobre</a></li>
-                <li><a href="/Cadastro-Cliente/code/index.html">Cadastro</a></li>
-                <li><a href="/Login/code/index.html">Login</a></li>
+                <li><a href="http://localhost/desenvolvimento/Inicio/code/index.php">Produtos</a></li>
+                <li><a href="http://localhost/desenvolvimento/Carrinho/code/index.php">Carrinho</a></li>
+                <li><a href="http://localhost/desenvolvimento/Sobre/code/index.php">Sobre</a></li>
+                <li><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cadastro</a></li>
+                <li><a href="http://localhost/desenvolvimento/Login/code/index.php">Login</a></li>
             </ul>
             <div class="logout">
             <?php 
@@ -110,7 +110,7 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
                         </div>
                         <button class="entrar">Entrar</button>
                         <div class="criar-conta">
-                            <p>Não possui uma conta? <a href="/Cadastro-Cliente/code/index.html" class="cadastro-link">Cadastre-se</a></p>
+                            <p>Não possui uma conta? <a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php" class="cadastro-link">Cadastre-se</a></p>
                         </div>
                     </form>
                 </div>

@@ -80,14 +80,14 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
     </head>
     <body>
         <header>
-            <a href="#" class="logo">Copperton</a>
+            <a href="http://localhost/desenvolvimento/Inicio/code/index.php" class="logo">Copperton</a>
             <div class="bx bx-menu" id="menu-icon"></div>
             <ul class="navbar">
-                <li><a href="/Inicio/code/index.html">Produtos</a></li>
-                <li><a href="/Carrinho/code/index.html">Carrinho</a></li>
-                <li><a href="/Sobre/code/index.html">Sobre</a></li>
-                <li><a href="/Cadastro-Cliente/code/index.html">Cadastro</a></li>
-                <li><a href="/Login/code/index.html">Login</a></li>
+                <li><a href="http://localhost/desenvolvimento/Inicio/code/index.php">Produtos</a></li>
+                <li><a href="http://localhost/desenvolvimento/Carrinho/code/index.php">Carrinho</a></li>
+                <li><a href="http://localhost/desenvolvimento/Sobre/code/index.php">Sobre</a></li>
+                <li><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cadastro</a></li>
+                <li><a href="http://localhost/desenvolvimento/Login/code/index.php">Login</a></li>
             </ul>
             <div class="logout">
             <?php 
