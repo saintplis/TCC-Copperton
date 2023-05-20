@@ -100,7 +100,7 @@ include('C:\xampp\htdocs\Desenvolvimento\Cadastro-Produto\code\protect.php');
             </ul>
             <div class="logout">
             <?php 
-            echo $_SESSION['LOG_NOME'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>';
+            echo $_SESSION['admin'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>';
             ?>
             </div>
         </header>

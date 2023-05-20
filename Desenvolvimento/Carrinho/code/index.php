@@ -26,8 +26,14 @@ include('protect.php');
               <li><a href="http://localhost/desenvolvimento/Login/code/index.php">Login</a></li>
             </ul>
             <div class="logout">
-            <?php
-            echo $_SESSION['LOG_NOME'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+            <?php 
+            if(isset($_SESSION['admin'])){
+              echo $_SESSION['admin'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+            }else if(isset($_SESSION['user'])){
+              echo $_SESSION['user'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+            }else{
+              echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>';
+            }
             ?>
             </div>
         </header>

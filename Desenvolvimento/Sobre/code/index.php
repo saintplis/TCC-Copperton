@@ -19,23 +19,24 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
       <header>
         <a href="http://localhost/desenvolvimento/Inicio/code/index.php" class="logo">Copperton</a>
         <div class="bx bx-menu" id="menu-icon"></div>
-            <ul class="navbar">
-              <li><a href="http://localhost/desenvolvimento/Inicio/code/index.php">Produtos</a></li>
-              <li><a href="http://localhost/desenvolvimento/Carrinho/code/index.php">Carrinho</a></li>
-              <li><a href="http://localhost/desenvolvimento/Sobre/code/index.php">Sobre</a></li>
-              <li><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cadastro</a></li>
-              <li><a href="http://localhost/desenvolvimento/Login/code/index.php">Login</a></li>
-            </ul>
-          <div class="logout">
-            <?php 
-            if(!isset($_SESSION['LOG_NOME'])) { 
-                echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>'; 
-            } 
-            else { 
-                echo $_SESSION['LOG_NOME'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
-            } 
-            ?>
-            </div>
+        <ul class="navbar">
+          <li><a href="http://localhost/desenvolvimento/Inicio/code/index.php">Produtos</a></li>
+          <li><a href="http://localhost/desenvolvimento/Carrinho/code/index.php">Carrinho</a></li>
+          <li><a href="http://localhost/desenvolvimento/Sobre/code/index.php">Sobre</a></li>
+          <li><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cadastro</a></li>
+          <li><a href="http://localhost/desenvolvimento/Login/code/index.php">Login</a></li>
+        </ul>
+        <div class="logout">
+        <?php 
+          if(isset($_SESSION['admin'])){
+              echo $_SESSION['admin'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+          }else if(isset($_SESSION['user'])){
+              echo $_SESSION['user'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+          }else{
+              echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>';
+          }
+        ?>
+        </div>
       </header>
       <!-- Sobre Nós -->
       <section class="sobre"> 

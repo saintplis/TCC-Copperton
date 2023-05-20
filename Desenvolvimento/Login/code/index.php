@@ -20,18 +20,19 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
 
             $usuario = $sql_query->fetch_assoc();
 
-            if(!isset($_SESSION)) {
-                session_start();
+            session_start();
+
+            if($usuario["LOG_USERTYPE"]=="on"){
+                $_SESSION['admin'] = $usuario['LOG_NOME'];
+                header("Location: http://localhost/desenvolvimento/Cadastro-Funcionario/code/index.php");
+            }elseif($usuario["LOG_USERTYPE"]=="user"){
+                $_SESSION['user'] = $usuario['LOG_NOME'];
+                header("Location: http://localhost/desenvolvimento/Inicio/code/index.php");
             }
-
-            $_SESSION['LOG_NOME'] = $usuario['LOG_NOME'];
-
-            header("Location: http://localhost/desenvolvimento/Inicio/code/index.php");
-
-        } else {
+            else {
             echo "Falha ao logar! E-mail ou senha incorretos";
+            }
         }
-
     }
     
 }
@@ -65,12 +66,13 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
             </ul>
             <div class="logout">
             <?php 
-            if(!isset($_SESSION['LOG_NOME'])) { 
-                echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>'; 
-            } 
-            else { 
-                echo $_SESSION['LOG_NOME'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
-            } 
+            if(isset($_SESSION['admin'])){
+                echo $_SESSION['admin'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+            }else if(isset($_SESSION['user'])){
+                echo $_SESSION['user'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+            }else{
+                echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>';
+            }
             ?>
             </div>
         </header>
