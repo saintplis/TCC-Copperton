@@ -1,3 +1,6 @@
+<?php
+include('protect.php')
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,7 +25,11 @@
                 <li><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cadastro</a></li>
                 <li><a href="http://localhost/desenvolvimento/Login/code/index.php">Login</a></li>
             </ul>
-            <div class='bx bx-user' id="user"></div>
+            <div class="logout">
+            <?php 
+            echo $_SESSION['LOG_NOME'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>';
+            ?>
+            </div>
         </header>
         <!-- Form -->
         <section class="resgistro">
@@ -89,7 +96,7 @@
                                 </div>
                                 <div class="inputs">
                                     <label for="fornecedor">CNPJ Fornecedor:</label>
-                                    <input type="number" id="fornecedor" name="fornecedor" required placeholder="Ex: 99.999.999/9999-99">
+                                    <input type="text" id="fornecedor "name="fornecedor" required placeholder="Ex: 00-0000.000">
                                 </div>
                             </div>
                         </div>

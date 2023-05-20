@@ -33,7 +33,13 @@
         // print_r('<br>');
         // print_r('Número: ' . $_POST['numero']);
         // print_r('<br>');
+        // print_r('Cargo: ' . $_POST['cargo']);
+        // print_r('<br>');
+        // print_r('Setor: ' . $_POST['setor']);
+        // print_r('<br>');
         // print_r('Senha: ' . $_POST['senha']);
+        // print_r('<br>');
+        // print_r('Admin: ' . $_POST['admin']);
         // print_r('<br>');
 
         include_once('config.php');
@@ -54,23 +60,26 @@
         $bairro = $_POST['bairro'];
         $rua = $_POST['rua'];
         $numero = $_POST['numero'];
+        $cargo = $_POST['cargo'];
+        $setor = $_POST['setor'];
         $senha = $_POST['senha'];
+        $admin = $_POST['admin'];
 
-        $result = mysqli_query($conexao, "INSERT INTO tb_cliente(CLI_NOME,CLI_SOBRENOME,CLI_CPF,CLI_DTNASC,CLI_SEXO,CLI_ESTADOCIVIL,CLI_EMAIL,CLI_TELEFONE1,CLI_TELEFONE2,CLI_PAIS,CLI_UF,CLI_CIDADE,CLI_CEP,CLI_BAIRRO,CLI_RUA,CLI_NUMERO) 
-        VALUES ('$nome','$sobrenome','$cpf','$dtnasc','$sexo','$estadocivil','$email','$telefone1','$telefone2','$pais','$uf','$cidade','$cep','$bairro','$rua','$numero')");
-        $result = mysqli_query($conexao, "INSERT INTO tb_login(LOG_NOME,LOG_EMAIL,LOG_SENHA)
-        VALUES ('$nome','$email','$senha')");
+        $result = mysqli_query($conexao, "INSERT INTO tb_funcionario(FUN_NOME,FUN_SOBRENOME,FUN_CPF,FUN_DTNASC,FUN_SEXO,FUN_ESTADOCIVIL,FUN_EMAIL,FUN_TELEFONE1,FUN_TELEFONE2,FUN_PAIS,FUN_UF,FUN_CIDADE,FUN_CEP,FUN_BAIRRO,FUN_RUA,FUN_NUMERO,FUN_CARGO,FUN_SETOR) 
+        VALUES ('$nome','$sobrenome','$cpf','$dtnasc','$sexo','$estadocivil','$email','$telefone1','$telefone2','$pais','$uf','$cidade','$cep','$bairro','$rua','$numero','$cargo','$setor')");
+        $result = mysqli_query($conexao, "INSERT INTO tb_login(LOG_NOME,LOG_EMAIL,LOG_SENHA,LOG_USERTYPE)
+        VALUES ('$nome','$email','$senha','$admin')");
     }
 ?>
 <?php
-include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
+include('C:\xampp\htdocs\Desenvolvimento\Cadastro-Produto\code\protect.php');
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Copperton - Cadastro de Cliente</title>
+        <title>Copperton - Cadastro de Funcionario</title>
         <link rel="stylesheet" type="text/css" href="style.css" />
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,19 +100,14 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
             </ul>
             <div class="logout">
             <?php 
-            if(!isset($_SESSION['LOG_NOME'])) { 
-                echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>'; 
-            } 
-            else { 
-                echo $_SESSION['LOG_NOME'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
-            } 
+            echo $_SESSION['LOG_NOME'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>';
             ?>
             </div>
         </header>
         <!-- Form -->
-        <section class="registro">
+        <section class="resgistro">
             <div class="container">
-                <h2>Cadastro de Cliente</h2>
+                <h2>Cadastro de Funcionário</h2>
                 <form action="index.php" method="post">
                     <div class="form-container">
                         <div class="dados-pessoais">
@@ -111,11 +115,11 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
                             <div class="fields">
                                 <div class="inputs">
                                     <label for="nome">Nome:</label>
-                                    <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+                                    <input type="text" id="nome" name="nome" required placeholder="Nome do Funcionário">
                                 </div>
                                 <div class="inputs">
                                     <label for="sobrenome">Sobrenome:</label>
-                                    <input type="text" id="sobrenome" name="sobrenome" required placeholder="Digite seu sobrenome">
+                                    <input type="text" id="sobrenome" name="sobrenome" required placeholder="Sobrenome do Funcionário">
                                 </div>
                                 <div class="inputs">
                                     <label for="cpf">CPF:</label>
@@ -151,7 +155,7 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
                             <div class="fields">
                                 <div class="inputs">
                                     <label for="email">E-mail:</label>
-                                    <input type="email" id="email" name="email" required placeholder="Ex: copperton_ltda@gmail.com">
+                                    <input type="email" id="email" name="email" required placeholder="Ex: junior.silva@copperton.com">
                                 </div>
                                 <div class="inputs">
                                     <label for="telefone1">Telefone 1:</label>
@@ -476,27 +480,55 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
                                 </div>
                             </div>
                         </div>
+                        <div class="funcoes">
+                            <span class="title">3 - Funções</span>
+                            <div class="fields">
+                                <div class="inputs">
+                                    <label for="cargo">Cargo:</label>
+                                    <select name="cargo" required>
+                                        <option value="CEO">CEO</option>
+                                        <option value="Presidente">Presidente</option>
+                                        <option value="Diretor">Diretor</option>
+                                        <option value="Gerente">Gerente</option>
+                                        <option value="Supervisor">Supervisor</option>
+                                        <option value="Analista">Analista</option>
+                                        <option value="Assistente">Assistente</option>
+                                        <option value="Auxiliar">Auxiliar</option>
+                                    </select>
+                                </div>
+                                <div class="inputs">
+                                    <label for="setor">Setor:</label>
+                                    <select name="setor" required>
+                                        <option value="Administrativo">Administrativo</option>
+                                        <option value="Financeiro">Financeiro</option>
+                                        <option value="RH">Recursos Humanos</option>
+                                        <option value="Comercial">Comercial</option>
+                                        <option value="Operacional">Operacional</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <div class="senha">
                             <span class="title">4 - Senha</span>
                             <div class="fields">
                                 <div class="inputs">
                                     <label for="senha">Senha:</label>
-                                    <input type="password" id="senha" name="senha" required placeholder="Digite sua senha">
+                                    <input type="password" id="senha" name="senha" required placeholder="Digite uma senha">
                                 </div>
                                 <div class="inputs">
                                     <label for="confirmar">Confirmar Senha:</label>
-                                    <input type="password" id="confirmar" name="confirmar" required placeholder="Confirme sua senha">
+                                    <input type="password" id="confirmar" name="confirmar" required placeholder="Confirme a senha">
                                 </div>
                             </div>
                         </div>
-                        <span class="termos">
-                            <input type="checkbox" name="termos" id="termos" require> Aceito os <a href="#">Termos e Política</a>. 
+                        <span class="admin">
+                            <input type="checkbox" name="admin" id="admin" require> Administrador</a>
                             <script>
-                              document.getElementById("termos").required = true;
+                              document.getElementById("admin").required = true;
                             </script>
                         </span>
                         <button class="submit" type="submit" name="submit">
-                            <span class="submit-text">Enviar</span>
+                            <span class="submit-text">Cadastrar</span>
                             <i class='bx bx-send'></i>
                         </button>
                     </div>

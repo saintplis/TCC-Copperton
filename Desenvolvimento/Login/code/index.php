@@ -12,7 +12,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
         $email = $mysqli->real_escape_string($_POST['email']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
-        $sql_code = "SELECT * FROM tb_login WHERE CLI_EMAIL = '$email' AND CLI_SENHA = '$senha'";
+        $sql_code = "SELECT * FROM tb_login WHERE LOG_EMAIL = '$email' AND LOG_SENHA = '$senha'";
         $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
         $quantidade = $sql_query->num_rows;
@@ -24,7 +24,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
                 session_start();
             }
 
-            $_SESSION['CLI_NOME'] = $usuario['CLI_NOME'];
+            $_SESSION['LOG_NOME'] = $usuario['LOG_NOME'];
 
             header("Location: http://localhost/desenvolvimento/Inicio/code/index.php");
 
@@ -65,11 +65,11 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
             </ul>
             <div class="logout">
             <?php 
-            if(!isset($_SESSION['CLI_NOME'])) { 
+            if(!isset($_SESSION['LOG_NOME'])) { 
                 echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>'; 
             } 
             else { 
-                echo $_SESSION['CLI_NOME'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+                echo $_SESSION['LOG_NOME'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
             } 
             ?>
             </div>

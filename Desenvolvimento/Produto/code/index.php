@@ -29,11 +29,11 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
             </ul>
             <div class="logout">
             <?php 
-            if(!isset($_SESSION['CLI_NOME'])) { 
+            if(!isset($_SESSION['LOG_NOME'])) { 
                 echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>'; 
             } 
             else { 
-                echo $_SESSION['CLI_NOME'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+                echo $_SESSION['LOG_NOME'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
             } 
             ?>
             </div>
@@ -73,6 +73,7 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
                 <h4>R$79,90</h4>
                 <label>Tamanho: </label>
                 <select class="product-size">
+                  <!-- Alterar!! (cor, tamanho e material) -->
                     <option>Selecione o Tamanho</option>
                     <option>GG</option>
                     <option>G</option>

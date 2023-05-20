@@ -98,13 +98,19 @@ section{
     background-color: var(--text-color);
     margin-top: 16px;
 }
-.container form .id{
+.container form .dados-pessoais{
     margin-top: 30px;
 }
-.container form .local{
+.container form .contatos{
     margin-top: 10px;
 }
-.container form .expecificacao{
+.container form .endereco{
+    margin-top: 10px;
+}
+.container form .funcoes{
+    margin-top: 10px;
+}
+.container form .senha{
     margin-top: 10px;
 }
 .container form .title{
@@ -126,13 +132,7 @@ form .fields .inputs{
     width: calc(100% / 3 - 15px);
     margin: 4px 0;
 }
-form .local .fields .inputs{
-    display: flex;
-    flex-direction: column;
-    width: calc(100% / 2 - 15px);
-    margin: 4px 0;
-}
-.inputs input, select, textarea{
+.inputs input, select{
     height: 42px;
     margin: 8px 0;
     padding: 0 15px;
@@ -153,12 +153,17 @@ form .local .fields .inputs{
 .inputs input[type="date"]:valid{
     color: black;
 }
-.inputs input[type="file"]{
-    text-align: center;
-    display: block;
-    cursor: pointer;
+form .funcoes .fields .inputs{
     display: flex;
-    padding-top: 8px;
+    flex-direction: column;
+    width: calc(100% / 2 - 15px);
+    margin: 4px 0;
+}
+form .senha .fields .inputs{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 2 - 15px);
+    margin: 4px 0;
 }
 .container form button{
     display: flex;
