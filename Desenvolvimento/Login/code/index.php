@@ -67,7 +67,7 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
             <div class="logout">
             <?php 
             if(isset($_SESSION['admin'])){
-                echo $_SESSION['admin'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+                echo $_SESSION['admin'] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
             }else if(isset($_SESSION['user'])){
                 echo $_SESSION['user'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
             }else{

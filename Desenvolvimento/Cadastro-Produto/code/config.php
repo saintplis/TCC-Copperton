@@ -1,12 +1,12 @@
 <?php
-$usuario = 'root';
-$senha = '';
-$database = 'db_copperton';
-$host = 'localhost';
+    $dbHost = 'Localhost';
+    $dbUsername = 'root';
+    $dbPassword = '';
+    $dbName = 'db_copperton';
 
-$mysqli = new mysqli($host, $usuario, $senha, $database);
+    $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
 
-    if($mysqli->connect_errno)
+    if($conexao->connect_errno)
     {
     echo "Erro";
     }
