@@ -153,12 +153,6 @@ form .fields .inputs{
 .inputs input[type="date"]:valid{
     color: black;
 }
-form .funcoes .fields .inputs{
-    display: flex;
-    flex-direction: column;
-    width: calc(100% / 2 - 15px);
-    margin: 4px 0;
-}
 form .senha .fields .inputs{
     display: flex;
     flex-direction: column;

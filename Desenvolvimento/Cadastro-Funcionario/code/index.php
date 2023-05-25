@@ -37,6 +37,8 @@
         // print_r('<br>');
         // print_r('Setor: ' . $_POST['setor']);
         // print_r('<br>');
+        // print_r('Salário: ' . $_POST['salario']);
+        // print_r('<br>');
         // print_r('Senha: ' . $_POST['senha']);
         // print_r('<br>');
         // print_r('Admin: ' . $_POST['admin']);
@@ -62,11 +64,12 @@
         $numero = $_POST['numero'];
         $cargo = $_POST['cargo'];
         $setor = $_POST['setor'];
+        $salario = $_POST['salario'];
         $senha = $_POST['senha'];
         $admin = $_POST['admin'];
 
-        $result = mysqli_query($conexao, "INSERT INTO tb_funcionario(FUN_NOME,FUN_SOBRENOME,FUN_CPF,FUN_DTNASC,FUN_SEXO,FUN_ESTADOCIVIL,FUN_EMAIL,FUN_TELEFONE1,FUN_TELEFONE2,FUN_PAIS,FUN_UF,FUN_CIDADE,FUN_CEP,FUN_BAIRRO,FUN_RUA,FUN_NUMERO,FUN_CARGO,FUN_SETOR) 
-        VALUES ('$nome','$sobrenome','$cpf','$dtnasc','$sexo','$estadocivil','$email','$telefone1','$telefone2','$pais','$uf','$cidade','$cep','$bairro','$rua','$numero','$cargo','$setor')");
+        $result = mysqli_query($conexao, "INSERT INTO tb_funcionario(FUN_NOME,FUN_SOBRENOME,FUN_CPF,FUN_DTNASC,FUN_SEXO,FUN_ESTADOCIVIL,FUN_EMAIL,FUN_TELEFONE1,FUN_TELEFONE2,FUN_PAIS,FUN_UF,FUN_CIDADE,FUN_CEP,FUN_BAIRRO,FUN_RUA,FUN_NUMERO,FUN_CARGO,FUN_SETOR,FUN_SALARIO) 
+        VALUES ('$nome','$sobrenome','$cpf','$dtnasc','$sexo','$estadocivil','$email','$telefone1','$telefone2','$pais','$uf','$cidade','$cep','$bairro','$rua','$numero','$cargo','$setor','$salario')");
         $result = mysqli_query($conexao, "INSERT INTO tb_login(LOG_NOME,LOG_EMAIL,LOG_SENHA,LOG_USERTYPE)
         VALUES ('$nome','$email','$senha','$admin')");
     }
@@ -506,6 +509,10 @@ include('C:\xampp\htdocs\Desenvolvimento\Cadastro-Produto\code\protect.php');
                                         <option value="Operacional">Operacional</option>
                                     </select>
                                 </div>
+                                <div class="inputs">
+                                    <label for="salario">Salário:</label>
+                                    <input type="number" step="0.010" id="salario" name="salario" required placeholder="Ex: R$1900,00">
+                                </div>
                             </div>
                         </div>
                         <div class="senha">
@@ -576,5 +583,6 @@ include('C:\xampp\htdocs\Desenvolvimento\Cadastro-Produto\code\protect.php');
                 </div>
             </div>
         </section>
+        <script src="script.js"></script>
     </body>
 </html>

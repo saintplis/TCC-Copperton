@@ -67,41 +67,53 @@ include('protect.php');
             <span>Nossos Produtos</span>
             <h2>Desfrute de uma variedade de coleções</h2>
             </div>
-            <div class="produto-container">
-                <a href="http://localhost/desenvolvimento/Produto/code/index.php">
-                <div class="produto-container-box">
-                    <div class="produto-container-box-img">
-                        <img src="http://localhost/desenvolvimento/Inicio/imagens/camiseta-cloud9.png">
+            <div class='produto-container'>
+            <?php
+
+            include_once('config.php');
+
+            $select_query = "Select * from `tb_produto` order by rand() LIMIT 0,3";
+            $result_query=mysqli_query($conexao,$select_query);
+            // $row=mysqli_fetch_assoc($result_query);
+            // echo $row['PRO_NOME'];
+            while($row=mysqli_fetch_assoc($result_query)){
+                $produto_id=$row['ID_PRODUTO'];
+                $pro_nome=$row['PRO_NOME'];
+                $pro_preco=$row['PRO_PRECO'];
+                $pro_imagem=$row['PRO_IMAGEM1'];
+                echo " 
+               
+                    <a href='http://localhost/desenvolvimento/Produto/code/index.php?product_id=$produto_id'>
+                    <div class='produto-container-box'>
+                        <div class='produto-container-box-img'>
+                            <img src='http://localhost/desenvolvimento/Cadastro-Produto/imagens/$pro_imagem'>
+                        </div>
+                        <h2>$pro_nome</h2>
+                        <h3>Counter-Strike</h3>
+                        <span>R$ $pro_preco</span>
+                        <i class='bx bx-cart'></i>
                     </div>
-                    <h2>Camiseta Cloud9</h2>
-                    <h3>Counter-Strike</h3>
-                    <span>R$ 89,90</span>
-                    <i class='bx bx-cart'></i>
-                </div>
-                </a>
-                <a href="http://localhost/desenvolvimento/Produto/code/index.php">
-                <div class="produto-container-box">
-                    <div class="produto-container-box-img">
-                        <img src="http://localhost/desenvolvimento/Inicio/imagens/moletom-navi.png">
-                    </div>
-                    <h2>Moletom NAVI</h2>
-                    <h3>Counter-Strike</h3>
-                    <span>R$ 249,90</span>
-                    <i class='bx bx-cart'></i>
-                </div>
-                </a>
-                <a href="http://localhost/desenvolvimento/Produto/code/index.php">
-                <div class="produto-container-box">
-                    <div class="produto-container-box-img">
-                        <img src="http://localhost/desenvolvimento/Inicio/imagens/calca-mibr.png">
-                    </div>
-                    <h2>Calça MIBR</h2>
-                    <h3>Counter-Strike</h3>
-                    <span>R$ 119,90</span>
-                    <i class='bx bx-cart'></i>
-                </div>
-                </a>
+                    </a>
+                
+            ";
+            }
+            ?>
             </div>
+            <!-- 
+                <div class="produto-container">
+                    <a href="http://localhost/desenvolvimento/Produto/code/index.php">
+                    <div class="produto-container-box">
+                        <div class="produto-container-box-img">
+                            <img src="http://localhost/desenvolvimento/Inicio/imagens/camiseta-cloud9.png">
+                        </div>
+                        <h2>Camiseta Cloud9</h2>
+                        <h3>Counter-Strike</h3>
+                        <span>R$ 89,90</span>
+                        <i class='bx bx-cart'></i>
+                    </div>
+                    </a>
+                </div>
+            -->
         </section>
         <!-- Parceiro -->
         <section class="parceiro" id="parceiro">

@@ -1,6 +1,31 @@
 <?php
 include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
 ?>
+<?php
+include_once('C:\xampp\htdocs\Desenvolvimento\Inicio\code\config.php');
+
+$id = "";
+if(isset($_GET["product_id"]))
+{
+  $id = $_GET["product_id"];
+}
+  $select_query = "SELECT * FROM tb_produto WHERE ID_PRODUTO = $id";
+  $result_query=mysqli_query($conexao,$select_query);
+
+            while($row=mysqli_fetch_assoc($result_query)){
+                $pro_nome=$row['PRO_NOME'];
+                $pro_descricao=$row['PRO_DESCRICAO'];
+                $pro_preco=$row['PRO_PRECO'];
+                $pro_categoria=$row['PRO_CATEGORIA'];
+                $pro_tamanho=$row['PRO_TAMANHO'];
+                $pro_cor=$row['PRO_COR'];
+                $pro_material=$row['PRO_MATERIAL'];
+                $pro_imagem1=$row['PRO_IMAGEM1'];
+                $pro_imagem2=$row['PRO_IMAGEM2'];
+                $pro_imagem3=$row['PRO_IMAGEM3'];
+                $pro_imagem4=$row['PRO_IMAGEM4'];
+              }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,57 +65,55 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
             </div>
         </header>
         <!-- Product -->
-        <section class="product">
-            <div class="product-container">
-                <div class="first-img">
-                    <img src="http://localhost/desenvolvimento/Produto/images/camiseta-cloud9-black-front-removebg-preview.png">
+        <?php
+        echo "
+        <section class='product'>
+            <div class='product-container'>
+                <div class='first-img'>
+                    <img src='http://localhost/desenvolvimento/Cadastro-Produto/imagens/$pro_imagem1'>
                 </div>
-                <div class="second-img-group">
-                    <div class="second-img">
-                        <img src="http://localhost/desenvolvimento/Produto/images/camiseta-cloud9-black-front-removebg-preview.png" onclick="showImg(this.src)">
+                <div class='second-img-group'>
+                    <div class='second-img'>
+                        <img src='http://localhost/desenvolvimento/Cadastro-Produto/imagens/$pro_imagem1' onclick='showImg(this.src)'>
                     </div>
-                    <div class="second-img">
-                        <img src="http://localhost/desenvolvimento/Produto/images/camiseta-cloud9-black-back-removebg-preview.png" onclick="showImg(this.src)">
+                    <div class='second-img'>
+                        <img src='http://localhost/desenvolvimento/Cadastro-Produto/imagens/$pro_imagem2' onclick='showImg(this.src)'>
                     </div>
-                    <div class="second-img">
-                        <img src="http://localhost/desenvolvimento/Produto/images/camiseta-cloud9-white-front-removebg-preview.png" onclick="showImg(this.src)">
+                    <div class='second-img'>
+                        <img src='http://localhost/desenvolvimento/Cadastro-Produto/imagens/$pro_imagem3' onclick='showImg(this.src)'>
                     </div>
-                    <div class="second-img">
-                        <img src="http://localhost/desenvolvimento/Produto/images/camiseta-cloud9-white-back-removebg-preview.png" onclick="showImg(this.src)">
+                    <div class='second-img'>
+                        <img src='http://localhost/desenvolvimento/Cadastro-Produto/imagens/$pro_imagem4' onclick='showImg(this.src)'>
                     </div>
                 </div>
             </div>
-            <div class="product-datails">
-                <p><a href="http://localhost/desenvolvimento/Inicio/code/index.php" class="back-home">Home</a> / Produtos</p>
-                <h2>Camiseta Cloud9</h2>
-                <div class="product-rating">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
+            <div class='product-datails'>
+                <p><a href='http://localhost/desenvolvimento/Inicio/code/index.php' class='back-home'>Home</a> / Produtos</p>
+                <h2>$pro_nome</h2>
+                <div class='product-rating'>
+                  <i class='fa fa-star' aria-hidden='true'></i>
+                  <i class='fa fa-star' aria-hidden='true'></i>
+                  <i class='fa fa-star' aria-hidden='true'></i>
+                  <i class='fa fa-star' aria-hidden='true'></i>
+                  <i class='fa fa-star' aria-hidden='true'></i>
                   <span>4.7(21)</span>
                 </div>
-                <h4>R$79,90</h4>
-                <label>Tamanho: </label>
-                <select class="product-size">
-                  <!-- Alterar!! (cor, tamanho e material) -->
-                    <option>Selecione o Tamanho</option>
-                    <option>GG</option>
-                    <option>G</option>
-                    <option>M</option>
-                    <option>P</option>
-                    <option>PP</option>
-                </select>
+                <h4>R$$pro_preco</h4>
+                <label>Produto: $pro_categoria</label>
                 <br>
-                <label>Quantidade: </label>
-                <input type="number" value="1" class="product-qty">
+                <label>Tamanho: $pro_tamanho</label>
                 <br>
-                <a href="#" class="product-submit"><i class='bx bx-cart'></i> Adicionar no Carrinho</a>
+                <label>Cor: $pro_cor</label>
+                <br>
+                <label>Material: $pro_material</label>
+                <br><br>
+                <a href='#' class='product-submit'><i class='bx bx-cart'></i> Adicionar no Carrinho</a>
                 <h3>Detalhes do Produto</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab enim consectetur eveniet doloremque adipisci tenetur quisquam corrupti, quam eius, totam impedit id cumque nulla natus vitae blanditiis ut possimus officiis.</p>
+                <p>$pro_descricao</p>
             </div>
         </section>
+        ";
+        ?>
         <!-- Related Product -->
         <section class="related-product">
           <div class="related-header">
@@ -99,98 +122,33 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
           </div>
           <div class="related">
             <div class="related-container">
-              <a href="http://localhost/desenvolvimento/Produto/code/index.php">
-              <div class="related-container-box">
-                  <div class="related-container-box-img">
-                      <img src="http://localhost/desenvolvimento/Produto/images/similares/camiseta-astralis.png">
-                  </div>
-                  <h2>Camiseta Astralis</h2>
-                  <h3>Counter-Strike</h3>
-                  <span>R$ 120,00</span>
-                  <i class='bx bx-cart'></i>
-              </div>
-              </a>
-              <a href="http://localhost/desenvolvimento/Produto/code/index.php">
-              <div class="related-container-box">
-                  <div class="related-container-box-img">
-                      <img src="http://localhost/desenvolvimento/Produto/images/similares/camiseta-faze.png">
-                  </div>
-                  <h2>Camiseta FaZe Clan</h2>
-                  <h3>Counter-Strike</h3>
-                  <span>R$ 90,00</span>
-                  <i class='bx bx-cart'></i>
-              </div>
-              </a>
-              <a href="http://localhost/desenvolvimento/Produto/code/index.php">
-              <div class="related-container-box">
-                  <div class="related-container-box-img">
-                      <img src="http://localhost/desenvolvimento/Produto/images/similares/camiseta-furia.png">
-                  </div>
-                  <h2>Camiseta Fúria</h2>
-                  <h3>Counter-Strike</h3>
-                  <span>R$ 132,90</span>
-                  <i class='bx bx-cart'></i>
-              </div>
-              </a>
-              <a href="http://localhost/desenvolvimento/Produto/code/index.php">
-              <div class="related-container-box">
-                <div class="related-container-box-img">
-                    <img src="http://localhost/desenvolvimento/Produto/images/similares/moletom-c9.png">
+            <?php
+
+            $select_query = "Select * from `tb_produto` order by rand() LIMIT 0,4";
+            $result_query=mysqli_query($conexao,$select_query);
+            // $row=mysqli_fetch_assoc($result_query);
+            // echo $row['PRO_NOME'];
+            while($row=mysqli_fetch_assoc($result_query)){
+                $produto_id=$row['ID_PRODUTO'];
+                $rel_nome=$row['PRO_NOME'];
+                $rel_preco=$row['PRO_PRECO'];
+                $rel_imagem=$row['PRO_IMAGEM1'];
+                echo "
+                <a href='http://localhost/desenvolvimento/Produto/code/index.php?product_id=$produto_id'>
+                <div class='related-container-box'>
+                    <div class='related-container-box-img'>
+                        <img src='http://localhost/desenvolvimento/Cadastro-Produto/imagens/$rel_imagem'>
+                    </div>
+                    <h2>$rel_nome</h2>
+                    <h3>Counter-Strike</h3>
+                    <span>R$ $rel_preco</span>
+                    <i class='bx bx-cart'></i>
                 </div>
-                <h2>Moletom Cloud9</h2>
-                <h3>Counter-Strike</h3>
-                <span>R$ 220,79</span>
-                <i class='bx bx-cart'></i>
-              </div>
-              </a>
-            </div>
-            <div class="related-container">
-              <a href="http://localhost/desenvolvimento/Produto/code/index.php">
-              <div class="related-container-box">
-                  <div class="related-container-box-img">
-                      <img src="http://localhost/desenvolvimento/Produto/images/similares/moletom-navi.png">
-                  </div>
-                  <h2>Moletom NAVI</h2>
-                  <h3>Counter-Strike</h3>
-                  <span>R$ 199,90</span>
-                  <i class='bx bx-cart'></i>
-              </div>
-              </a>
-              <a href="http://localhost/desenvolvimento/Produto/code/index.php">
-              <div class="related-container-box">
-                  <div class="related-container-box-img">
-                      <img src="http://localhost/desenvolvimento/Produto/images/similares/camiseta-g2.png">
-                  </div>
-                  <h2>Camiseta G2</h2>
-                  <h3>Counter-Strike</h3>
-                  <span>R$ 67,90</span>
-                  <i class='bx bx-cart'></i>
-              </div>
-              </a>
-              <a href="http://localhost/desenvolvimento/Produto/code/index.php">
-              <div class="related-container-box">
-                  <div class="related-container-box-img">
-                      <img src="http://localhost/desenvolvimento/Produto/images/similares/camiseta-mouz.png">
-                  </div>
-                  <h2>Camiseta Mouz</h2>
-                  <h3>Counter-Strike</h3>
-                  <span>R$ 98,90</span>
-                  <i class='bx bx-cart'></i>
-              </div>
-              </a>
-              <a href="http://localhost/desenvolvimento/Produto/code/index.php">
-              <div class="related-container-box">
-                <div class="related-container-box-img">
-                    <img src="http://localhost/desenvolvimento/Produto/images/similares/camiseta-og.png">
-                </div>
-                <h2>Camiseta OG</h2>
-                <h3>Counter-Strike</h3>
-                <span>R$ 110,25</span>
-                <i class='bx bx-cart'></i>
-              </div>
-              </a>
-            </div>
-        </div>
+                </a>
+                ";
+            }
+            ?>
+          </div>
         </section>
         <!-- Rating -->
         <section class="rating">
