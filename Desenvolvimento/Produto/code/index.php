@@ -158,57 +158,109 @@ if(isset($_GET["product_id"]))
             <h3>Avaliações</h3>
             <p>Avaliações de outros usuários</p>
           </div>
-            <div class="rating-container-user1">
-              <div class="rating-user">
-                <div class="rating-name">
-                  <img src="/Produto/images/user.png">
-                  <h2> Heitor Carvalho da Silva</h2>
-                  <div class="rating-value-user">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <span>5.0</span>
+        <?php
+
+        include_once('C:\xampp\htdocs\Desenvolvimento\Inicio\code\config.php');
+
+        $id = "";
+        if(isset($_GET["product_id"]))
+        {
+        $id = $_GET["product_id"];
+        }
+
+        $select_query = "SELECT * FROM tb_feedback WHERE ID_PRODUTO = $id ORDER BY RAND() LIMIT 0,3";
+        $result_query=mysqli_query($conexao,$select_query);
+
+        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+        date_default_timezone_set('America/Sao_Paulo');
+
+        while($row=mysqli_fetch_assoc($result_query)){
+          $feedback_id=$row['ID_FEEDBACK'];
+          $fed_nome=$row['FED_NOME'];
+          $fed_descricao=$row['FED_DESCRICAO'];
+          $fed_nota=$row['FED_NOTA'];
+          $fed_data=$row['FED_DTFEEDBACK'];
+
+        echo "
+          <div class='rating-container-user1'>
+            <div class='rating-user'>
+              <div class='rating-name'>
+                <h2> $fed_nome</h2>
+        ";
+        if($fed_nota==1){
+        echo"
+              <div class='rating-value-user'>
+                <i class='bx bxs-star'></i>
+                <i class='bx bx-star'></i>
+                <i class='bx bx-star'></i>
+                <i class='bx bx-star'></i>
+                <i class='bx bx-star'></i>
+                <span>($fed_nota.0)</span>
+              </div>
+        ";
+        }
+        if($fed_nota==2){
+          echo"
+                <div class='rating-value-user'>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bx-star'></i>
+                  <i class='bx bx-star'></i>
+                  <i class='bx bx-star'></i>
+                  <span>($fed_nota.0)</span>
+                </div>
+          ";
+          }
+          if($fed_nota==3){
+            echo"
+                  <div class='rating-value-user'>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i>
+                    <span>($fed_nota.0)</span>
                   </div>
-                </div>
-                <div class="rating-date">
-                  <p>Avaliado em 20 de Agosto de 2022</p>
-                </div>
+            ";
+            }
+            if($fed_nota==4){
+              echo"
+                    <div class='rating-value-user'>
+                      <i class='bx bxs-star'></i>
+                      <i class='bx bxs-star'></i>
+                      <i class='bx bxs-star'></i>
+                      <i class='bx bxs-star'></i>
+                      <i class='bx bx-star'></i>
+                      <span>($fed_nota.0)</span>
+                    </div>
+              ";
+              }
+              if($fed_nota==5){
+                echo"
+                      <div class='rating-value-user'>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <span>($fed_nota.0)</span>
+                      </div>
+                ";
+                }
+        echo "
               </div>
-              <div class="rating-text">
-                <p>Eu comprei este boné em particular há algumas semanas e tenho usado com frequência desde então. Posso dizer que estou muito satisfeito com a qualidade do produto. O material é resistente e durável, e o boné se encaixa perfeitamente na minha cabeça.
-                  <br><br>
-                  Além disso, o design é muito elegante e combina com várias roupas do meu guarda-roupa. Eu realmente gosto da cor preta com o logotipo branco, que dá um toque moderno e sofisticado ao boné.
-                  <br><br>
-                  O único ponto negativo que eu posso mencionar é que a aba é um pouco mais curta do que eu gostaria, mas não é algo que me incomode muito. No geral, eu recomendo este boné para quem procura um acessório de qualidade e estilo.</p>
+              <div class='rating-date'>
+                <p>";echo strftime('%A, %d de %B de %Y', strtotime($row['FED_DTFEEDBACK']));echo "</p>
               </div>
             </div>
-          <div class="rating--container-user2">
-            <div class="rating-user">
-              <div class="rating-name">
-                <img src="/Produto/images/user.png">
-                <h2> Fernanda Cardoso dos Santos</h2>
-                <div class="rating-value-user">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <span>4.0</span>
-                </div>
-              </div>
-              <div class="rating-date">
-                <p>Avaliado em 31 de Março de 2023</p>
-              </div>
-            </div>
-            <div class="rating-text">
-              <p>Eu comprei este boné em particular há algumas semanas e tenho usado com frequência desde então. Posso dizer que estou muito satisfeito com a qualidade do produto. O material é resistente e durável, e o boné se encaixa perfeitamente na minha cabeça.
-                <br><br>
-                Além disso, o design é muito elegante e combina com várias roupas do meu guarda-roupa. Eu realmente gosto da cor preta com o logotipo branco, que dá um toque moderno e sofisticado ao boné.
-                <br><br>
-                O único ponto negativo que eu posso mencionar é que a aba é um pouco mais curta do que eu gostaria, mas não é algo que me incomode muito. No geral, eu recomendo este boné para quem procura um acessório de qualidade e estilo.</p>
+            <div class='rating-text'>
+              <p>$fed_descricao
+              <br><br>
             </div>
           </div>
+        ";
+        }
+        ?>
         </section>
         <!-- Footer -->
         <section class="footer">

@@ -156,6 +156,9 @@ form .senha .fields .inputs{
     width: calc(100% / 2 - 15px);
     margin: 4px 0;
 }
+#password-validation{
+    margin-bottom: 10px;
+}
 .container form button{
     display: flex;
     align-items: center;

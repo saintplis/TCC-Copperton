@@ -35,8 +35,19 @@ if(isset($_POST['submit']))
   $email = $_POST['email'];
   $descricao = $_POST['mensagem'];
 
-  $result = mysqli_query($conexao, "INSERT INTO tb_feedback(FED_NOME,FED_EMAIL,FED_DESCRICAO,FED_NOTA,ID_PRODUTO) 
-  VALUES ('$nome','$email','$descricao','$nota','$produto_id')");
+  $sql = "SELECT ID_CLIENTE FROM tb_cliente WHERE CLI_EMAIL='$email'";
+  $result_sql = mysqli_query($conexao, $sql);
+
+  if (mysqli_num_rows($result_sql) > 0) {
+    while($row = mysqli_fetch_assoc($result_sql)) {
+      $cliente_id = $row["ID_CLIENTE"];
+    }
+  } else {
+    echo "Cliente não encontrado";
+}
+
+  $result = mysqli_query($conexao, "INSERT INTO tb_feedback(FED_NOME,FED_EMAIL,FED_DESCRICAO,FED_NOTA,ID_PRODUTO,ID_CLIENTE) 
+  VALUES ('$nome','$email','$descricao','$nota','$produto_id','$cliente_id')");
 }
 ?>
 <!DOCTYPE html>

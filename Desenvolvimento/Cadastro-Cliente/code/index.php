@@ -55,11 +55,22 @@
         $rua = $_POST['rua'];
         $numero = $_POST['numero'];
         $senha = $_POST['senha'];
+        $confirmar = $_POST['confirmar'];
 
+        $teste_email = mysqli_query($conexao, "SELECT * FROM tb_cliente WHERE CLI_EMAIL = '$email'");
+        $teste_cpf = mysqli_query($conexao, "SELECT * FROM tb_cliente WHERE CLI_CPF = '$cpf'");
+        if(mysqli_num_rows($teste_email)>0){
+        echo "<script>window.alert('E-mail já cadastrado! Tente novamente.')</script>";
+        } elseif(mysqli_num_rows($teste_cpf)>0){
+        echo "<script>window.alert('CPF já cadastrado! Tente novamente.')</script>";
+        } elseif($senha != $confirmar){
+        echo "<script>window.alert('As senhas não combinam! Tente novamente.')</script>";
+        } else {
         $result = mysqli_query($conexao, "INSERT INTO tb_cliente(CLI_NOME,CLI_SOBRENOME,CLI_CPF,CLI_DTNASC,CLI_SEXO,CLI_ESTADOCIVIL,CLI_EMAIL,CLI_TELEFONE1,CLI_TELEFONE2,CLI_PAIS,CLI_UF,CLI_CIDADE,CLI_CEP,CLI_BAIRRO,CLI_RUA,CLI_NUMERO) 
         VALUES ('$nome','$sobrenome','$cpf','$dtnasc','$sexo','$estadocivil','$email','$telefone1','$telefone2','$pais','$uf','$cidade','$cep','$bairro','$rua','$numero')");
         $result = mysqli_query($conexao, "INSERT INTO tb_login(LOG_NOME,LOG_EMAIL,LOG_SENHA)
         VALUES ('$nome','$email','$senha')");
+        }
     }
 ?>
 <?php
@@ -77,6 +88,11 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+            crossorigin="anonymous">
+        </script>
     </head>
     <body>
         <header>
@@ -120,7 +136,10 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
                                 </div>
                                 <div class="inputs">
                                     <label for="cpf">CPF:</label>
-                                    <input type="number" id="cpf" name="cpf" required placeholder="Ex: 999.999.999-99">
+                                    <input type="number" id="cpf" name="cpf" required 
+                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+                                    maxlength = "11" 
+                                    placeholder="Ex: 999.999.999-99">
                                 </div>
                                 <div class="inputs">
                                     <label for="dtnasc">Data de Nascimento:</label>
@@ -156,11 +175,15 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
                                 </div>
                                 <div class="inputs">
                                     <label for="telefone1">Telefone 1:</label>
-                                    <input type="tel" id="telefone1" name="telefone1" required placeholder="Ex: (99)99999-9999">
+                                    <input type="tel" id="telefone1" name="telefone1" required placeholder="Ex: (99)99999-9999"
+                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+                                    maxlength = "11">
                                 </div>
                                 <div class="inputs">
                                     <label for="telefone2">Telefone 2:</label>
-                                    <input type="tel" id="telefone2" name="telefone2" placeholder="Ex: (99)99999-9999">
+                                    <input type="tel" id="telefone2" name="telefone2" placeholder="Ex: (99)99999-9999"
+                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+                                    maxlength = "11">
                                 </div>
                             </div>
                         </div>
@@ -461,7 +484,9 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
                                 </div>
                                 <div class="inputs">
                                     <label for="cep">CEP:</label>
-                                    <input type="number" id="cep" name="cep" required placeholder="Ex: 99.999-999">
+                                    <input type="number" id="cep" name="cep" required placeholder="Ex: 99.999-999"
+                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+                                    maxlength = "8">
                                 </div>
                                 <div class="inputs">
                                     <label for="bairro">Bairro:</label>
@@ -482,16 +507,22 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
                             <div class="fields">
                                 <div class="inputs">
                                     <label for="senha">Senha:</label>
-                                    <input type="password" id="senha" name="senha" required placeholder="Digite sua senha">
+                                    <input type="password" id="senha" name="senha" minlength="6" maxlength="12" onKeyUp="verificaForcaSenha();" required placeholder="Digite sua senha">
+                                    <script src="password.js"></script>
                                 </div>
                                 <div class="inputs">
                                     <label for="confirmar">Confirmar Senha:</label>
-                                    <input type="password" id="confirmar" name="confirmar" required placeholder="Confirme sua senha">
+                                    <input type="password" id="confirmar" name="confirmar" minlength="6" maxlength="12" required placeholder="Confirme sua senha">
+                                    <script src="validation.js"></script>
+                                </div>
+                                <div class="inputs">
+                                    <span id="password-status"></span>
+                                    <span id="password-validation"></span>
                                 </div>
                             </div>
                         </div>
                         <span class="termos">
-                            <input type="checkbox" name="termos" id="termos" require> Aceito os <a href="#">Termos e Política</a>. 
+                            <input type="checkbox" name="termos" id="termos" require> Aceito os <a href="http://localhost/desenvolvimento/Sobre/code/index.php">Termos e Política</a>. 
                             <script>
                               document.getElementById("termos").required = true;
                             </script>
