@@ -2,7 +2,6 @@
 
 // elementos inciais
 const pagarBtn = document.querySelector('#pagar-total');
-const removerBtn = document.querySelectorAll('#remover');
 const quantidadeElem = document.querySelectorAll('#quantidade');
 const acrescentarBtn = document.querySelectorAll('#acrescentar');
 const precoElem = document.querySelectorAll('#preco');
@@ -23,23 +22,11 @@ for ( let i = 0; i < acrescentarBtn.length; i++ ) {
 
         totalCalc();
     });
-    removerBtn[i].addEventListener('click', function(){
-        // coletar o valor do campo 'quantidade',
-        // baseado no clique do botão 'remover'.
-        let remover = Number(this.nextElementSibling.textContent);
-        // diminuir o valor da variavel 'remover' em 1 baseado na condição
-        remover <- 1 ? 1 : remover--;
-        // coletar o valor do campo 'quantidade',
-        // baseado no clique do botão 'remover'.
-        this.nextElementSibling.textContent = remover;
-
-        totalCalc();
-    })
 }
 // função para calcular o extrato do preço do produto
 const totalCalc = function(){
     // declarando as variaveis iniciais
-    const taxas = 0.10;
+    const taxas = 0.1;
     let subtotal = 0;
     let totalTax = 0;
     let total = 0;

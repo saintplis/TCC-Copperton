@@ -108,7 +108,7 @@ if(isset($_GET["product_id"]))
                 <br>
                 <label>Material: $pro_material</label>
                 <br><br>
-                <a href='#' class='product-submit'><i class='bx bx-cart'></i> Adicionar no Carrinho</a>
+                <a href='#' class='product-submit' data-id=$produto_id><i class='bx bx-cart'></i> Adicionar no Carrinho</a>
                 <a href='feedback.php?product_id=$produto_id' class='feedback-submit'><i class='bx bxs-comment-detail'></i> Avalie o Produto</a>
                 <h3>Detalhes do Produto</h3>
                 <p>$pro_descricao</p>
@@ -304,6 +304,25 @@ if(isset($_GET["product_id"]))
           </div>
         </section>
         <script src="script.js"></script>
+        <script>
+          var product_id = document.getElementsByClassName("product-submit");
+          for(var i = 0; i<product_id.length; i++){
+            product_id[i].addEventListener("click",function(event){
+              var target = event.target;
+              var id = target.getAttribute("data-id");
+              var xml = new XMLHttpRequest();
+              xml.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                  var data = JSON.parse(this.responseText);
+                  target.innerHTML = data.in_cart;
+                }
+              }
+
+              xml.open("GET","connection.php?id="+id,true);
+              xml.send();
+            })
+          }
+        </script>
       </body>
   </html>
         

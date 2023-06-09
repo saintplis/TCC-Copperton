@@ -134,8 +134,6 @@ if(isset($_POST['submit']) && isset($_FILES['imagem-1'],$_FILES['imagem-2'],$_FI
         header("Location: http://localhost/desenvolvimento/Cadastro-Produto/code/index.php?error=$em4");
     }
 
-} else{
-    echo "Faça o Upload das Imagens";
 }
 ?>
 <?php
@@ -175,8 +173,13 @@ if(isset($_POST['submit']))
     $cor = $_POST['cor'];
     $material = $_POST['material'];
 
-    $result = mysqli_query($conexao, "INSERT INTO tb_produto(PRO_BARCODE,PRO_NOME,PRO_DESCRICAO,PRO_PRECO,PRO_CATEGORIA,PRO_TAMANHO,PRO_COR,PRO_MATERIAL,PRO_ESTOQUE,PRO_FORNECEDOR,PRO_IMAGEM1,PRO_IMAGEM2,PRO_IMAGEM3,PRO_IMAGEM4,FUN_EMAIL) 
+    $teste_barcode = mysqli_query($conexao, "SELECT * FROM tb_produto WHERE PRO_BARCODE = '$barcode'");
+    if(mysqli_num_rows($teste_barcode)>0){
+    echo "<script>window.alert('Produto já cadastrado! Tente novamente.')</script>";
+    } else{
+    $result = mysqli_query($conexao, "INSERT INTO tb_produto(PRO_BARCODE,PRO_NOME,PRO_DESCRICAO,PRO_PRECO,PRO_CATEGORIA,PRO_TAMANHO,PRO_COR,PRO_MATERIAL,PRO_ESTOQUE,PRO_FORNECEDOR,PRO_IMAGEM1,PRO_IMAGEM2,PRO_IMAGEM3,PRO_IMAGEM4) 
     VALUES ('$barcode','$nome','$descricao','$preco','$categoria','$tamanho','$cor','$material','$estoque','$fornecedor','$new_img1_name','$new_img2_name','$new_img3_name','$new_img4_name')");
+    }
 }
 ?>
 <?php

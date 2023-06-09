@@ -1,4 +1,12 @@
 <?php
+
+require_once 'C:\xampp\htdocs\Desenvolvimento\Produto\code\connection.php';
+
+$sql_cart = "SELECT * FROM tb_carrinho";
+$all_cart = $conexao->query($sql_cart);
+
+?>
+<?php
 include('protect.php');
 ?>
 <!DOCTYPE html>
@@ -82,19 +90,25 @@ include('protect.php');
                 </form>
               </div>
               <button class="pagar">
-                <b>Pagar:</b> R$<span id="pagar-total">149,80</span>
+                <b>Pagar:</b> R$<span id="pagar-total"></span>
               </button>
             </section>
             <section class="carrinho">
               <div class="carrinho-itens">
                 <h2 class="section-header">Ordem de Produtos</h2>
                 <div class="ordem-produto">
+                  <?php
+                    while($row_cart = mysqli_fetch_assoc($all_cart)){
+                      $sql = "SELECT * FROM tb_produto WHERE ID_PRODUTO=".$row_cart["ID_PRODUTO"];
+                      $all_product = $conexao->query($sql);
+                      while($row = mysqli_fetch_assoc($all_product)){
+                  ?>
                   <div class="ordem-item">
                     <div class="img-box">
-                      <img src="http://localhost/desenvolvimento/Carrinho/images/camiseta-cloud9.png" alt="Camiseta Cloud9" class="ordem-imagem">
+                      <img src="http://localhost/desenvolvimento/Cadastro-Produto/imagens/<?php echo $row["PRO_IMAGEM1"]; ?>" alt="" class="ordem-imagem">
                     </div>
                     <div class="ordem-detalhes">
-                      <h4 class="detalhes-nome">Camiseta Cloud9</h4>
+                      <h4 class="detalhes-nome"><?php echo $row["PRO_NOME"]; ?></h4>
                       <div class="detalhes-info">
                         <div class="detalhes-quantidade">
                           <button id="remover">
@@ -106,41 +120,18 @@ include('protect.php');
                           </button>
                         </div>
                         <div class="detalhes-preco">
-                          R$ <span id="preco">59,90</span>
+                          R$ <span id="preco"><?php echo $row["PRO_PRECO"]; ?></span>
                         </div>
                       </div>
                     </div>
                     <button class="excluir">
-                      <i class='bx bx-x'></i>
+                      <i class='bx bx-x' data-id="<?php echo $row["ID_PRODUTO"]; ?>"></i>
                     </button>
                   </div>
-                </div>
-                <div class="ordem-produto">
-                  <div class="ordem-item">
-                    <div class="img-box">
-                      <img src="http://localhost/desenvolvimento/Carrinho/images/moletom-navi.png" alt="Moletom Navi" class="ordem-imagem">
-                    </div>
-                    <div class="ordem-detalhes">
-                      <h4 class="detalhes-nome">Moletom Navi</h4>
-                      <div class="detalhes-info">
-                        <div class="detalhes-quantidade">
-                          <button id="remover">
-                            <i class='bx bx-minus'></i>
-                          </button>
-                          <span id="quantidade">1</span>
-                          <button id="acrescentar">
-                            <i class='bx bx-plus'></i>
-                          </button>
-                        </div>
-                        <div class="detalhes-preco">
-                          R$ <span id="preco">89,90</span>
-                        </div>
-                      </div>
-                    </div>
-                    <button class="excluir">
-                      <i class='bx bx-x'></i>
-                    </button>
-                  </div>
+                  <?php
+                    }
+                  }
+                  ?>
                 </div>
               </div>
               <div class="cupom">
@@ -153,16 +144,16 @@ include('protect.php');
                 </div>
                 <div class="extrato">
                   <div class="extrato-subtotal">
-                    <span>Subtotal:</span><span>R$ <span id="extrato-subtotal">149,80</span></span>
+                    <span>Subtotal:</span><span>R$ <span id="extrato-subtotal"></span></span>
                   </div>
                   <div class="extrato-taxas">
-                    <span>Taxas:</span><span>R$ <span id="extrato-taxas">0,10</span></span>
+                    <span>Taxas:</span><span>R$ <span id="extrato-taxas"></span></span>
                   </div>
                   <div class="extrato-desconto">
                     <span>Desconto:</span><span>R$ <span id="extrato-desconto">0,00</span></span>
                   </div>
                   <div class="extrato-total">
-                    <span>Total:</span><span>R$ <span id="extrato-total">149,90</span></span>
+                    <span>Total:</span><span>R$ <span id="extrato-total"></span></span>
                   </div>
                 </div>
               </div>
@@ -211,5 +202,23 @@ include('protect.php');
           </div>
         </section>
       <script src="script.js"></script>
+      <script>
+        var remove = document.getElementsByClassName("excluir");
+        for(var i = 0; i<remove.length; i++){
+          remove[i].addEventListener("click",function(event){
+            var target = event.target;
+            var cart_id = target.getAttribute("data-id");
+            var xml = new XMLHttpRequest();
+            xml.onreadystatechange = function(){
+              if(this.readyState == 4 && this.status == 200){
+                target.innerHTML = this.responseText;
+                target.style.opacity = .3;
+              }
+            }
+            xml.open("GET","http://localhost/desenvolvimento/Produto/code/connection.php?cart_id="+cart_id,true);
+            xml.send();
+          })
+        }
+      </script>
     </body>
 </html>
