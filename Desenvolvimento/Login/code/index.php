@@ -23,10 +23,18 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
             session_start();
 
             if($usuario["LOG_USERTYPE"]=="on"){
-                $_SESSION['admin'] = $usuario['LOG_NOME'];
+
+                $_adm_nome = $usuario['LOG_NOME'];
+                $_adm_id = $usuario['ID_FUNCIONARIO'];
+                
+                $_SESSION['admin'] = array($_adm_nome,$_adm_id);
                 header("Location: http://localhost/desenvolvimento/Cadastro-Funcionario/code/index.php");
             }elseif($usuario["LOG_USERTYPE"]=="user"){
-                $_SESSION['user'] = $usuario['LOG_NOME'];
+
+                $_user_nome = $usuario['LOG_NOME'];
+                $_user_id = $usuario['ID_CLIENTE'];
+
+                $_SESSION['user'] = array($_user_nome,$_user_id);
                 header("Location: http://localhost/desenvolvimento/Inicio/code/index.php");
             }
             else {
@@ -67,9 +75,11 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
             <div class="logout">
             <?php 
             if(isset($_SESSION['admin'])){
-                echo $_SESSION['admin'] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+                $admin = $_SESSION['admin'];
+                echo $admin[0] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
             }else if(isset($_SESSION['user'])){
-                echo $_SESSION['user'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+                $user = $_SESSION['user'];
+                echo $user[0] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
             }else{
                 echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>';
             }

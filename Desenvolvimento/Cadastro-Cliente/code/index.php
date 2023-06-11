@@ -68,8 +68,17 @@
         } else {
         $result = mysqli_query($conexao, "INSERT INTO tb_cliente(CLI_NOME,CLI_SOBRENOME,CLI_CPF,CLI_DTNASC,CLI_SEXO,CLI_ESTADOCIVIL,CLI_EMAIL,CLI_TELEFONE1,CLI_TELEFONE2,CLI_PAIS,CLI_UF,CLI_CIDADE,CLI_CEP,CLI_BAIRRO,CLI_RUA,CLI_NUMERO) 
         VALUES ('$nome','$sobrenome','$cpf','$dtnasc','$sexo','$estadocivil','$email','$telefone1','$telefone2','$pais','$uf','$cidade','$cep','$bairro','$rua','$numero')");
-        $result = mysqli_query($conexao, "INSERT INTO tb_login(LOG_NOME,LOG_EMAIL,LOG_SENHA)
-        VALUES ('$nome','$email','$senha')");
+        
+        $sqliQuery= "SELECT ID_CLIENTE FROM tb_cliente WHERE CLI_EMAIL = '$email'";
+        if ($result = $conexao->query($sqliQuery)) {    
+            while ($row = $result->fetch_object()) {
+                $id = $row->ID_CLIENTE;
+            }
+            $result->close();
+        }
+
+        $result = mysqli_query($conexao, "INSERT INTO tb_login(ID_CLIENTE,LOG_NOME,LOG_EMAIL,LOG_SENHA)
+        VALUES ('$id','$nome','$email','$senha')");
         }
     }
 ?>
@@ -108,9 +117,11 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
             <div class="logout">
             <?php 
             if(isset($_SESSION['admin'])){
-                echo $_SESSION['admin'] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+                $admin = $_SESSION['admin'];
+                echo $admin[0] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
             }else if(isset($_SESSION['user'])){
-                echo $_SESSION['user'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+                $user = $_SESSION['user'];
+                echo $user[0] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
             }else{
                 echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>';
             }

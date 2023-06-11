@@ -29,11 +29,13 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
         <div class="logout">
         <?php 
           if(isset($_SESSION['admin'])){
-              echo $_SESSION['admin'] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+            $admin = $_SESSION['admin'];
+            echo $admin[0] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
           }else if(isset($_SESSION['user'])){
-              echo $_SESSION['user'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+            $user = $_SESSION['user'];
+            echo $user[0] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
           }else{
-              echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>';
+            echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>';
           }
         ?>
         </div>

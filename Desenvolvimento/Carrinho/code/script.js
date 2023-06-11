@@ -3,6 +3,7 @@
 // elementos inciais
 const pagarBtn = document.querySelector('#pagar-total');
 const quantidadeElem = document.querySelectorAll('#quantidade');
+const diminuirBtn = document.querySelectorAll('#remover');
 const acrescentarBtn = document.querySelectorAll('#acrescentar');
 const precoElem = document.querySelectorAll('#preco');
 const subtotalElem = document.querySelector('#extrato-subtotal');
@@ -19,6 +20,16 @@ for ( let i = 0; i < acrescentarBtn.length; i++ ) {
         // mostrar o valor da variavel 'acrescentar' no elemento 'quantidadeElem'
         // baseado no clique do botão 'acrescentar'
         this.previousElementSibling.textContent = acrescentar;
+
+        totalCalc();
+    });
+
+    diminuirBtn[i].addEventListener('click', function(){
+        let diminuir = Number(this.nextElementSibling.textContent);
+
+        diminuir <- 1 ? 1 : diminuir--;
+        
+        this.nextElementSibling.textContent = diminuir;
 
         totalCalc();
     });

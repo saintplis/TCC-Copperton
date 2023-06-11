@@ -211,7 +211,8 @@ include('protect.php')
             </ul>
             <div class="logout">
             <?php 
-            echo $_SESSION['admin'] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>';
+            $admin = $_SESSION['admin'];
+            echo $admin[0] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>';
             ?>
             </div>
         </header>

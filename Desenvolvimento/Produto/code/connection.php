@@ -6,9 +6,10 @@
 
     $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
 
-    if(isset($_GET["id"])){
+    if(isset($_GET["id"]) || isset($_GET['uid'])) {
         $product_id = $_GET["id"];
-        $sql = "SELECT * FROM tb_carrinho WHERE ID_PRODUTO = $product_id";
+        $user_id = $_GET["uid"];
+        $sql = "SELECT * FROM tb_carrinho WHERE ID_PRODUTO = $product_id AND ID_CLIENTE = $user_id";
         $result = $conexao->query($sql);
         $total_cart = "SELECT * FROM tb_carrinho";
         $total_cart_result = $conexao->query($total_cart);
@@ -19,7 +20,7 @@
 
             echo json_encode(["num_cart"=>$cart_num,"in_cart"=>$in_cart]);
         }else{
-            $insert = "INSERT INTO tb_carrinho(ID_PRODUTO) values($product_id)";
+            $insert = "INSERT INTO tb_carrinho(ID_PRODUTO,ID_CLIENTE) values('$product_id','$user_id')";
             if($conexao->query($insert) === true){
                 $in_cart = "Item no carrinho";
                 echo json_encode(["num_cart"=>$cart_num,"in_cart"=>$in_cart]);
@@ -29,11 +30,12 @@
         }
     }
 
-    if(isset($_GET["cart_id"])){
-         $product_id = $_GET["cart_id"];
-         $sql = "DELETE FROM tb_carrinho WHERE ID_PRODUTO=".$product_id;
+    if(isset($_GET["cart_id"])) {
+        $product_id = $_GET["cart_id"];
 
-         if($conexao->query($sql) === TRUE){
-         }
-    }
+        $sql = "DELETE FROM tb_carrinho WHERE ID_PRODUTO=".$product_id;
+
+        if($conexao->query($sql) === TRUE){
+        }
+   }
 ?>

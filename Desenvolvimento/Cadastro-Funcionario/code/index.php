@@ -80,8 +80,17 @@
         } else {
         $result = mysqli_query($conexao, "INSERT INTO tb_funcionario(FUN_NOME,FUN_SOBRENOME,FUN_CPF,FUN_DTNASC,FUN_SEXO,FUN_ESTADOCIVIL,FUN_EMAIL,FUN_TELEFONE1,FUN_TELEFONE2,FUN_PAIS,FUN_UF,FUN_CIDADE,FUN_CEP,FUN_BAIRRO,FUN_RUA,FUN_NUMERO,FUN_CARGO,FUN_SETOR,FUN_SALARIO) 
         VALUES ('$nome','$sobrenome','$cpf','$dtnasc','$sexo','$estadocivil','$email','$telefone1','$telefone2','$pais','$uf','$cidade','$cep','$bairro','$rua','$numero','$cargo','$setor','$salario')");
-        $result = mysqli_query($conexao, "INSERT INTO tb_login(LOG_NOME,LOG_EMAIL,LOG_SENHA,LOG_USERTYPE)
-        VALUES ('$nome','$email','$senha','$admin')");
+        
+        $sqliQuery= "SELECT ID_FUNCIONARIO FROM tb_funcionario WHERE FUN_EMAIL = '$email'";
+        if ($result = $conexao->query($sqliQuery)) {    
+            while ($row = $result->fetch_object()) {
+                $id = $row->ID_FUNCIONARIO;
+            }
+            $result->close();
+        }
+        
+        $result = mysqli_query($conexao, "INSERT INTO tb_login(ID_FUNCIONARIO,LOG_NOME,LOG_EMAIL,LOG_SENHA,LOG_USERTYPE)
+        VALUES ('$id','$nome','$email','$senha','$admin')");
         }
     }
 ?>
@@ -119,7 +128,8 @@ include('C:\xampp\htdocs\Desenvolvimento\Cadastro-Produto\code\protect.php');
             </ul>
             <div class="logout">
             <?php 
-            echo $_SESSION['admin'] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>';
+            $admin = $_SESSION['admin'];
+            echo $admin[0] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>';
             ?>
             </div>
         </header>

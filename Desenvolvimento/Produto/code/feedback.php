@@ -42,12 +42,13 @@ if(isset($_POST['submit']))
     while($row = mysqli_fetch_assoc($result_sql)) {
       $cliente_id = $row["ID_CLIENTE"];
     }
-  } else {
-    echo "Cliente não encontrado";
-}
 
-  $result = mysqli_query($conexao, "INSERT INTO tb_feedback(FED_NOME,FED_EMAIL,FED_DESCRICAO,FED_NOTA,ID_PRODUTO,ID_CLIENTE) 
-  VALUES ('$nome','$email','$descricao','$nota','$produto_id','$cliente_id')");
+    $result = mysqli_query($conexao, "INSERT INTO tb_feedback(FED_NOME,FED_EMAIL,FED_DESCRICAO,FED_NOTA,ID_PRODUTO,ID_CLIENTE) 
+    VALUES ('$nome','$email','$descricao','$nota','$produto_id','$cliente_id')");
+    
+  } else {
+    echo "<script>window.alert('Cliente não encontrado.')</script>";
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -79,9 +80,11 @@ if(isset($_POST['submit']))
             <div class="logout">
             <?php 
             if(isset($_SESSION['admin'])){
-              echo $_SESSION['admin'] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+              $admin = $_SESSION['admin'];
+              echo $admin[0] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
             }else if(isset($_SESSION['user'])){
-              echo $_SESSION['user'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+              $user = $_SESSION['user'];
+              echo $user[0] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
             }else{
               echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>';
             }

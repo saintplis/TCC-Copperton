@@ -1,13 +1,16 @@
 <?php
+include('protect.php');
+?>
+<?php
 
 require_once 'C:\xampp\htdocs\Desenvolvimento\Produto\code\connection.php';
 
-$sql_cart = "SELECT * FROM tb_carrinho";
+$user = $_SESSION['user'];
+$user_id = $user[1];
+
+$sql_cart = "SELECT * FROM tb_carrinho WHERE ID_CLIENTE = $user_id";
 $all_cart = $conexao->query($sql_cart);
 
-?>
-<?php
-include('protect.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,9 +39,11 @@ include('protect.php');
             <div class="logout">
             <?php 
             if(isset($_SESSION['admin'])){
-              echo $_SESSION['admin'] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+              $admin = $_SESSION['admin'];
+              echo $admin[0] . ' - Admin | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
             }else if(isset($_SESSION['user'])){
-              echo $_SESSION['user'] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
+              $user = $_SESSION['user'];
+              echo $user[0] . ' | ' . '<a href="http://localhost/desenvolvimento/Inicio/code/logout.php">Sair</a>'; 
             }else{
               echo '<li><a href="http://localhost/desenvolvimento/Login/code/index.php">Entrar</a></li>';
             }
@@ -104,9 +109,11 @@ include('protect.php');
                       while($row = mysqli_fetch_assoc($all_product)){
                   ?>
                   <div class="ordem-item">
+                    <a href="http://localhost/desenvolvimento/Produto/code/index.php?product_id=<?php echo $row["ID_PRODUTO"]; ?>">
                     <div class="img-box">
                       <img src="http://localhost/desenvolvimento/Cadastro-Produto/imagens/<?php echo $row["PRO_IMAGEM1"]; ?>" alt="" class="ordem-imagem">
                     </div>
+                    </a>
                     <div class="ordem-detalhes">
                       <h4 class="detalhes-nome"><?php echo $row["PRO_NOME"]; ?></h4>
                       <div class="detalhes-info">
@@ -125,7 +132,7 @@ include('protect.php');
                       </div>
                     </div>
                     <button class="excluir">
-                      <i class='bx bx-x' data-id="<?php echo $row["ID_PRODUTO"]; ?>"></i>
+                      <i class='bx bx-x' data-id="<?php echo $row["ID_PRODUTO"]; ?>" data-uid="<?php echo $user_id ?>"></i>
                     </button>
                   </div>
                   <?php
@@ -202,23 +209,6 @@ include('protect.php');
           </div>
         </section>
       <script src="script.js"></script>
-      <script>
-        var remove = document.getElementsByClassName("excluir");
-        for(var i = 0; i<remove.length; i++){
-          remove[i].addEventListener("click",function(event){
-            var target = event.target;
-            var cart_id = target.getAttribute("data-id");
-            var xml = new XMLHttpRequest();
-            xml.onreadystatechange = function(){
-              if(this.readyState == 4 && this.status == 200){
-                target.innerHTML = this.responseText;
-                target.style.opacity = .3;
-              }
-            }
-            xml.open("GET","http://localhost/desenvolvimento/Produto/code/connection.php?cart_id="+cart_id,true);
-            xml.send();
-          })
-        }
-      </script>
+      <script src="remove.js"></script>
     </body>
 </html>
