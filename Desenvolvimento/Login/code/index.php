@@ -28,7 +28,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
                 $_adm_id = $usuario['ID_FUNCIONARIO'];
                 
                 $_SESSION['admin'] = array($_adm_nome,$_adm_id);
-                header("Location: http://localhost/desenvolvimento/Cadastro-Funcionario/code/index.php");
+                header("Location: http://localhost/desenvolvimento/Admin/code/index.php");
             }elseif($usuario["LOG_USERTYPE"]=="user"){
 
                 $_user_nome = $usuario['LOG_NOME'];

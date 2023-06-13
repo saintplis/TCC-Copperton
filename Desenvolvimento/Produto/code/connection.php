@@ -29,13 +29,11 @@
             }
         }
     }
-
-    if(isset($_GET["cart_id"])) {
-        $product_id = $_GET["cart_id"];
-
-        $sql = "DELETE FROM tb_carrinho WHERE ID_PRODUTO=".$product_id;
-
-        if($conexao->query($sql) === TRUE){
-        }
-   }
+    if(isset($_GET["r_id"]) || isset($_GET['r_uid'])) {
+        $remove_id = $_GET["r_id"];
+        $remove_uid = $_GET["r_uid"];
+    
+        $sql_remove = "DELETE FROM tb_carrinho WHERE ID_PRODUTO = $remove_id AND ID_CLIENTE = $remove_uid";
+        $remove = $conexao->query($sql_remove);
+    }
 ?>
