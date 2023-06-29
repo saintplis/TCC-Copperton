@@ -1,51 +1,4 @@
 <?php
-include('config.php');
-
-if(isset($_POST['email']) || isset($_POST['senha'])) {
-    
-    if(strlen($_POST['email']) == 0) {
-        echo "Preencha seu e-mail";
-    } else if(strlen($_POST['senha']) == 0) {
-        echo "Preencha sua senha";
-    } else {
-        
-        $email = $mysqli->real_escape_string($_POST['email']);
-        $senha = $mysqli->real_escape_string($_POST['senha']);
-
-        $sql_code = "SELECT * FROM tb_login WHERE LOG_EMAIL = '$email' AND LOG_SENHA = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
-
-        $quantidade = $sql_query->num_rows;
-        if($quantidade == 1) {
-
-            $usuario = $sql_query->fetch_assoc();
-
-            session_start();
-
-            if($usuario["LOG_USERTYPE"]=="on"){
-
-                $_adm_nome = $usuario['LOG_NOME'];
-                $_adm_id = $usuario['ID_FUNCIONARIO'];
-                
-                $_SESSION['admin'] = array($_adm_nome,$_adm_id);
-                header("Location: http://localhost/desenvolvimento/Admin/code/index.php");
-            }elseif($usuario["LOG_USERTYPE"]=="user"){
-
-                $_user_nome = $usuario['LOG_NOME'];
-                $_user_id = $usuario['ID_CLIENTE'];
-
-                $_SESSION['user'] = array($_user_nome,$_user_id);
-                header("Location: http://localhost/desenvolvimento/Inicio/code/index.php");
-            }
-            else {
-            echo "Falha ao logar! E-mail ou senha incorretos";
-            }
-        }
-    }
-    
-}
-?>
-<?php
 include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
 ?>
 <!DOCTYPE html>
@@ -53,7 +6,7 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Copperton - Login</title>
+        <title>Coppeton - Catálogo</title>
         <link rel="stylesheet" type="text/css" href="style.css" />
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,46 +39,42 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
             ?>
             </div>
         </header>
-        <!-- Main -->
-        <div class="backgroud"></div>
-        <section class="container">
-            <div class="wrap">
-                <h2 class="title">Copperton</h2>
-                <div class="fields">
-                    <h2>Bem vindo!<br><span>Entre em nosso site</span></h2>
-                    <p>Desfrute de nossos produtos e promoções</p>
-                    <div class="social-media">
-                        <a href="https://www.facebook.com/profile.php?id=100091055314736"><i class='bx bxl-facebook'></i></a>
-                        <a href="https://www.instagram.com/copperton_ltda/"><i class='bx bxl-instagram'></i></a>
-                        <a href="https://www.linkedin.com/in/copperton-ltda-01292126a/"><i class='bx bxl-linkedin'></i></a>
-                        <a href="https://twitter.com/Copperton_LTDA "><i class='bx bxl-twitter'></i></a>
-                    </div>
-                </div>
+        <!-- Produtos -->
+        <section class="produto" id="produto">
+            <div class="produto-header">
+                <span>Nossos Produtos</span>
+                <h2>Desfrute de uma variedade de coleções</h2>
             </div>
-            <div class="login-section">
-                <div class="form-login">
-                    <form action="" method="post">
-                        <h2>Entrar</h2>
-                        <div class="inputs">
-                            <span class="icon"><i class='bx bx-envelope'></i></span>
-                            <input type="email" required name="email">
-                            <label for="email">E-mail</label>
+            <div class='produto-container'>
+            <?php
+                include_once('C:\xampp\htdocs\Desenvolvimento\Inicio\code\config.php');
+
+                $select_query = "SELECT * FROM tb_produto";
+                $result_query=mysqli_query($conexao,$select_query);
+                // $row=mysqli_fetch_assoc($result_query);
+                // echo $row['PRO_NOME'];
+                while($row=mysqli_fetch_assoc($result_query)){
+                    $produto_id=$row['ID_PRODUTO'];
+                    $pro_nome=$row['PRO_NOME'];
+                    $pro_preco=$row['PRO_PRECO'];
+                    $pro_imagem=$row['PRO_IMAGEM1'];
+                    echo " 
+                
+                        <a href='http://localhost/desenvolvimento/Produto/code/index.php?product_id=$produto_id'>
+                        <div class='produto-container-box'>
+                            <div class='produto-container-box-img'>
+                                <img src='http://localhost/desenvolvimento/Cadastro-Produto/imagens/$pro_imagem'>
+                            </div>
+                            <h2>$pro_nome</h2>
+                            <h3>Counter-Strike</h3>
+                            <span>R$ $pro_preco</span>
+                            <i class='bx bx-cart'></i>
                         </div>
-                        <div class="inputs">
-                            <span class="icon"><i class='bx bx-lock-alt'></i></span>
-                            <input type="password" required name="senha">
-                            <label for="senha">Senha</label>
-                        </div>
-                        <div class="lembrar-senha">
-                            <label for=""><input type="checkbox">Lembrar Senha</label>
-                            <a href="#">Esqueci a Senha</a>
-                        </div>
-                        <button class="entrar">Entrar</button>
-                        <div class="criar-conta">
-                            <p>Não possui uma conta? <a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php" class="cadastro-link">Cadastre-se</a></p>
-                        </div>
-                    </form>
-                </div>
+                        </a>
+                    
+                ";
+                }
+            ?>
             </div>
         </section>
         <!-- Footer -->
@@ -168,6 +117,6 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
                     </ul>
                 </div>
             </div>
-      </section>
+        </section>
     </body>
 </html>

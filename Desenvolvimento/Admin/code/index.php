@@ -39,14 +39,29 @@ include('C:\xampp\htdocs\Desenvolvimento\Cadastro-Produto\code\protect.php');
                     <h1>Páginas</h1>
                 </div>
                 <ul>
-                    <li><a href="">Dashboard</a></li>
-                    <li><a href="http://localhost/desenvolvimento/Cadastro-Funcionario/code/index.php">Funcionário</a></li>
-                    <li><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cliente</a></li>
-                    <li><a href="http://localhost/desenvolvimento/Cadastro-Produto/code/index.php">Produto</a></li>
-                    <li><a href="http://localhost/desenvolvimento/Inicio/code/index.php">Home</a></li>
-                    <li><a href="http://localhost/desenvolvimento/Login/code/index.php">Login</a></li>
-                    <li><a href="http://localhost/desenvolvimento/Sobre/code/index.php">Sobre</a></li>
+                    <li><i class='bx bxs-dashboard'></i><a href="">Dashboard</a></li>
+                    <li><i class='bx bx-group'></i></i><a href="http://localhost/desenvolvimento/Cadastro-Funcionario/code/index.php">Funcionário</a></li>
+                    <li><i class='bx bx-user'></i><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cliente</a></li>
+                    <li><i class='bx bx-shopping-bag'></i><a href="http://localhost/desenvolvimento/Cadastro-Produto/code/index.php">Produto</a></li>
+                    <li><i class='bx bx-home-alt-2'></i><a href="http://localhost/desenvolvimento/Inicio/code/index.php">Home</a></li>
+                    <li><i class='bx bx-log-in-circle'></i><a href="http://localhost/desenvolvimento/Login/code/index.php">Login</a></li>
+                    <li><i class='bx bx-spreadsheet'></i></i><a href="http://localhost/desenvolvimento/Sobre/code/index.php">Sobre</a></li>
                 </ul>
+            </div>
+            <div class="container">
+                <div class="header">
+                    <div class="nav">
+                        <div class="user">
+                            <h2>Bem-vindo(a) <a><?php echo $admin[0]; ?></a>!</h2>
+                        </div>
+                        <div class="settings">
+                            <i class='bx bx-cog' ></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard">
+                    <iframe title="Copperton Dashboard" width="1230" height="750" src="https://app.powerbi.com/view?r=eyJrIjoiYWZmYWMzOWMtNmU2Yy00MWU5LWIzM2QtZTAxNzI4OTI2NGE4IiwidCI6IjY3YmJjMjk2LTBjNTMtNDI0ZC04NWNhLTU5YzEzZDQ2NDQ3NSJ9" frameborder="0" allowFullScreen="true"></iframe>
+                </div>
             </div>
         </section>
         <!-- Dashboard -->

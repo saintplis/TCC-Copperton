@@ -35,20 +35,12 @@ if(isset($_POST['submit']))
   $email = $_POST['email'];
   $descricao = $_POST['mensagem'];
 
-  $sql = "SELECT ID_CLIENTE FROM tb_cliente WHERE CLI_EMAIL='$email'";
-  $result_sql = mysqli_query($conexao, $sql);
+  $user = $_SESSION['user'];
+  $user_id = $user[1];
 
-  if (mysqli_num_rows($result_sql) > 0) {
-    while($row = mysqli_fetch_assoc($result_sql)) {
-      $cliente_id = $row["ID_CLIENTE"];
-    }
-
-    $result = mysqli_query($conexao, "INSERT INTO tb_feedback(FED_NOME,FED_EMAIL,FED_DESCRICAO,FED_NOTA,ID_PRODUTO,ID_CLIENTE) 
-    VALUES ('$nome','$email','$descricao','$nota','$produto_id','$cliente_id')");
-    
-  } else {
-    echo "<script>window.alert('Cliente não encontrado.')</script>";
-  }
+  $result = mysqli_query($conexao, "INSERT INTO tb_feedback(FED_NOME,FED_EMAIL,FED_DESCRICAO,FED_NOTA,ID_PRODUTO,ID_CLIENTE) 
+  VALUES ('$nome','$email','$descricao','$nota','$produto_id','$user_id')");
+  
 }
 ?>
 <!DOCTYPE html>
@@ -71,7 +63,7 @@ if(isset($_POST['submit']))
             <a href="http://localhost/desenvolvimento/Inicio/code/index.php" class="logo">Copperton</a>
             <div class="bx bx-menu" id="menu-icon"></div>
             <ul class="navbar">
-              <li><a href="http://localhost/desenvolvimento/Inicio/code/index.php">Produtos</a></li>
+              <li><a href="http://localhost/desenvolvimento/Catalogo/code/index.php">Produtos</a></li>
               <li><a href="http://localhost/desenvolvimento/Carrinho/code/index.php">Carrinho</a></li>
               <li><a href="http://localhost/desenvolvimento/Sobre/code/index.php">Sobre</a></li>
               <li><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cadastro</a></li>

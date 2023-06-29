@@ -1,4 +1,30 @@
 <?php
+    if(isset($_POST['submit']))
+    {
+        include_once('config.php');
+
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $assunto = $_POST['assunto'];
+        $mensagem = $_POST['mensagem'];
+
+        $sql = "SELECT ID_CLIENTE FROM tb_cliente WHERE CLI_EMAIL='$email'";
+        $result_sql = mysqli_query($conexao, $sql);
+
+        if (mysqli_num_rows($result_sql) > 0) {
+            while($row = mysqli_fetch_assoc($result_sql)) {
+            $cliente_id = $row["ID_CLIENTE"];
+            }
+            
+        $result = mysqli_query($conexao, "INSERT INTO tb_sac(SAC_NOME,SAC_EMAIL,SAC_ASSUNTO,SAC_MENSAGEM,ID_CLIENTE) 
+        VALUES ('$nome','$email','$assunto','$mensagem','$cliente_id')");
+
+        } else {
+            echo "<script>window.alert('Cliente não encontrado.')</script>";
+        }
+    }
+?>
+<?php
 include('protect.php');
 ?>
 <!DOCTYPE html>
@@ -19,7 +45,7 @@ include('protect.php');
             <a href="http://localhost/desenvolvimento/Inicio/code/index.php" class="logo">Copperton</a>
             <div class="bx bx-menu" id="menu-icon"></div>
             <ul class="navbar">
-                <li><a href="http://localhost/desenvolvimento/Inicio/code/index.php">Produtos</a></li>
+                <li><a href="http://localhost/desenvolvimento/Catalogo/code/index.php">Produtos</a></li>
                 <li><a href="http://localhost/desenvolvimento/Carrinho/code/index.php">Carrinho</a></li>
                 <li><a href="http://localhost/desenvolvimento/Sobre/code/index.php">Sobre</a></li>
                 <li><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cadastro</a></li>
@@ -60,7 +86,7 @@ include('protect.php');
                 <h2>Camiseta Astralis</h2>
                 <p>Arrase no estilo e torça com a fé inabalavel de seu time.</p>
                 <h3>R$ 79,90</h3>
-                <a href="http://localhost/desenvolvimento/Produto/code/index.php" class="promocao-button">Compre Agora</a>
+                <a href="http://localhost/desenvolvimento/Produto/code/index.php?product_id=2" class="promocao-button">Compre Agora</a>
             </div>
         </section>
         <!-- Produto -->
@@ -156,24 +182,24 @@ include('protect.php');
                 </div>
                 <div class="contact-form-container">
                     <h2 class="form-title">Fale Conosco</h2>
-                    <form class="contact-form">
+                    <form class="contact-form" action="index.php" method="post">
                     <div class="form-group">
-                        <label for="name">Nome:</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="nome">Nome:</label>
+                        <input type="text" class="nome" id="nome" name="nome" required>
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" class="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="subject">Assunto:</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <label for="assunto">Assunto:</label>
+                        <input type="text" class="assunto" id="assunto" name="assunto" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Mensagem:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" class="mensagem" name="mensagem" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="submit-button">Enviar</button>
+                    <button class="submit" type="submit" name="submit" id="submit">Enviar</button>
                     </form>
                 </div>
             </div>

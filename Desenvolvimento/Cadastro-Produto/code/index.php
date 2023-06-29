@@ -1,4 +1,7 @@
 <?php
+include('protect.php')
+?>
+<?php
 if(isset($_POST['submit']) && isset($_FILES['imagem-1'],$_FILES['imagem-2'],$_FILES['imagem-3'],$_FILES['imagem-4'],))
 {
     // echo "<pre>";
@@ -20,7 +23,7 @@ if(isset($_POST['submit']) && isset($_FILES['imagem-1'],$_FILES['imagem-2'],$_FI
     $error1 = $_FILES['imagem-1']['error'];
 
     if ($error1 === 0) {
-        if ($img_size1 > 200000){
+        if ($img_size1 > 2000000){
             $em1 = "Desculpe, tente um arquivo menor.";
             header("Location: http://localhost/desenvolvimento/Cadastro-Produto/code/index.php?error=$em1");
         }else {
@@ -50,7 +53,7 @@ if(isset($_POST['submit']) && isset($_FILES['imagem-1'],$_FILES['imagem-2'],$_FI
     $error2 = $_FILES['imagem-2']['error'];
 
     if ($error2 === 0) {
-        if ($img_size2 > 200000){
+        if ($img_size2 > 2000000){
             $em2 = "Desculpe, tente um arquivo menor.";
             header("Location: http://localhost/desenvolvimento/Cadastro-Produto/code/index.php?error=$em2");
         }else {
@@ -80,7 +83,7 @@ if(isset($_POST['submit']) && isset($_FILES['imagem-1'],$_FILES['imagem-2'],$_FI
     $error3 = $_FILES['imagem-3']['error'];
 
     if ($error3 === 0) {
-        if ($img_size3 > 200000){
+        if ($img_size3 > 2000000){
             $em3 = "Desculpe, tente um arquivo menor.";
             header("Location: http://localhost/desenvolvimento/Cadastro-Produto/code/index.php?error=$em3");
         }else {
@@ -110,7 +113,7 @@ if(isset($_POST['submit']) && isset($_FILES['imagem-1'],$_FILES['imagem-2'],$_FI
     $error4 = $_FILES['imagem-4']['error'];
 
     if ($error4 === 0) {
-        if ($img_size4 > 200000){
+        if ($img_size4 > 2000000){
             $em4 = "Desculpe, tente um arquivo menor.";
             header("Location: http://localhost/desenvolvimento/Cadastro-Produto/code/index.php?error=$em4");
         }else {
@@ -173,17 +176,17 @@ if(isset($_POST['submit']))
     $cor = $_POST['cor'];
     $material = $_POST['material'];
 
+    $admin = $_SESSION['admin'];
+    $admin_id = $admin[1];
+
     $teste_barcode = mysqli_query($conexao, "SELECT * FROM tb_produto WHERE PRO_BARCODE = '$barcode'");
     if(mysqli_num_rows($teste_barcode)>0){
     echo "<script>window.alert('Produto já cadastrado! Tente novamente.')</script>";
     } else{
-    $result = mysqli_query($conexao, "INSERT INTO tb_produto(PRO_BARCODE,PRO_NOME,PRO_DESCRICAO,PRO_PRECO,PRO_CATEGORIA,PRO_TAMANHO,PRO_COR,PRO_MATERIAL,PRO_ESTOQUE,PRO_FORNECEDOR,PRO_IMAGEM1,PRO_IMAGEM2,PRO_IMAGEM3,PRO_IMAGEM4) 
-    VALUES ('$barcode','$nome','$descricao','$preco','$categoria','$tamanho','$cor','$material','$estoque','$fornecedor','$new_img1_name','$new_img2_name','$new_img3_name','$new_img4_name')");
+    $result = mysqli_query($conexao, "INSERT INTO tb_produto(PRO_BARCODE,PRO_NOME,PRO_DESCRICAO,PRO_PRECO,PRO_CATEGORIA,PRO_TAMANHO,PRO_COR,PRO_MATERIAL,PRO_ESTOQUE,PRO_FORNECEDOR,PRO_IMAGEM1,PRO_IMAGEM2,PRO_IMAGEM3,PRO_IMAGEM4,ID_FUNCIONARIO) 
+    VALUES ('$barcode','$nome','$descricao','$preco','$categoria','$tamanho','$cor','$material','$estoque','$fornecedor','$new_img1_name','$new_img2_name','$new_img3_name','$new_img4_name','$admin_id')");
     }
 }
-?>
-<?php
-include('protect.php')
 ?>
 <!DOCTYPE html>
 <html>
@@ -203,7 +206,7 @@ include('protect.php')
             <a href="http://localhost/desenvolvimento/Inicio/code/index.php" class="logo">Copperton</a>
             <div class="bx bx-menu" id="menu-icon"></div>
             <ul class="navbar">
-                <li><a href="http://localhost/desenvolvimento/Inicio/code/index.php">Produtos</a></li>
+                <li><a href="http://localhost/desenvolvimento/Catalogo/code/index.php">Produtos</a></li>
                 <li><a href="http://localhost/desenvolvimento/Carrinho/code/index.php">Carrinho</a></li>
                 <li><a href="http://localhost/desenvolvimento/Sobre/code/index.php">Sobre</a></li>
                 <li><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cadastro</a></li>

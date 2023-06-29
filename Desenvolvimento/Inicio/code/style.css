@@ -300,7 +300,7 @@ input, textarea {
     border: 1px solid #fcf4f0;
     box-sizing: border-box;
 }
-.submit-button {
+.submit {
     width: 200px;
     padding: 10px 20px;
     background: var(--main-color);
@@ -311,7 +311,7 @@ input, textarea {
     font-weight: bold;
     cursor: pointer;
 }
-.submit-button:hover {
+.submit:hover {
     transform: scale(1.2) translateY(10px);
     transition: .4s;
 }

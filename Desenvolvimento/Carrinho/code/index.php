@@ -11,6 +11,9 @@ $user_id = $user[1];
 $sql_cart = "SELECT * FROM tb_carrinho WHERE ID_CLIENTE = $user_id";
 $all_cart = $conexao->query($sql_cart);
 
+if(isset($_POST['submit']))
+    {
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +33,7 @@ $all_cart = $conexao->query($sql_cart);
             <a href="http://localhost/desenvolvimento/Inicio/code/index.php" class="logo">Copperton</a>
             <div class="bx bx-menu" id="menu-icon"></div>
             <ul class="navbar">
-              <li><a href="http://localhost/desenvolvimento/Inicio/code/index.php">Produtos</a></li>
+              <li><a href="http://localhost/desenvolvimento/Catalogo/code/index.php">Produtos</a></li>
               <li><a href="http://localhost/desenvolvimento/Carrinho/code/index.php">Carrinho</a></li>
               <li><a href="http://localhost/desenvolvimento/Sobre/code/index.php">Sobre</a></li>
               <li><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cadastro</a></li>
@@ -55,117 +58,117 @@ $all_cart = $conexao->query($sql_cart);
           <h1 class="header">
             <i class='bx bx-cart'></i>Carrinho
           </h1>
-          <div class="item-flex">
-            <section class="checkout">
-              <h2 class="section-header">Detalhes do Pagamento</h2>
-              <div class="pagamento-form">
-                <div class="pagamento-metodo">
-                  <button id="botao1" onclick="mudarCor1()">
-                    <i class='bx bx-credit-card'></i>
-                    <span>Cartão de Crédito</span>
-                  </button>
-                  <button id="botao2" onclick="mudarCor2()">
-                    <i class='bx bxl-paypal'></i>
-                    <span>Paypal</span>
-                  </button>
-                </div>
-                <form action="#">
-                  <div class="cartao-nome">
-                    <label for="cartao-nome" class="labels">Nome do Cartão</label>
-                    <input type="text" name="cartao-nome" id="cartao-nome" class="inputs">
-                  </div>
-                  <div class="cartao-numero">
-                    <label for="cartao-numero" class="labels">Número do Cartão</label>
-                    <input type="number" name="cartao-numero" id="cartao-numero" class="inputs">
-                  </div>
-                  <div class="input-flex">
-                    <div class="data-validade">
-                      <label for="data-validade" class="labels">Data de Validade</label>
-                      <div class="input-flex">
-                        <input type="number" name="dia" id="data-validade" class="inputs" placeholder="31" min="1" max="31">
-                        /
-                        <input type="number" name="mes" id="data-validade" class="inputs" placeholder="12" min="1" max="12">
-                      </div>
-                    </div>
-                    <div class="cvv">
-                      <label for="cvv" class="labels">CVV</label>
-                      <input type="number" name="cvv" id="cvv" class="inputs">
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <button class="pagar">
-                <b>Pagar:</b> R$<span id="pagar-total"></span>
-              </button>
-            </section>
-            <section class="carrinho">
-              <div class="carrinho-itens">
-                <h2 class="section-header">Ordem de Produtos</h2>
-                <div class="ordem-produto">
-                  <?php
-                    while($row_cart = mysqli_fetch_assoc($all_cart)){
-                      $sql = "SELECT * FROM tb_produto WHERE ID_PRODUTO=".$row_cart["ID_PRODUTO"];
-                      $all_product = $conexao->query($sql);
-                      while($row = mysqli_fetch_assoc($all_product)){
-                  ?>
-                  <div class="ordem-item">
-                    <a href="http://localhost/desenvolvimento/Produto/code/index.php?product_id=<?php echo $row["ID_PRODUTO"]; ?>">
-                    <div class="img-box">
-                      <img src="http://localhost/desenvolvimento/Cadastro-Produto/imagens/<?php echo $row["PRO_IMAGEM1"]; ?>" alt="" class="ordem-imagem">
-                    </div>
-                    </a>
-                    <div class="ordem-detalhes">
-                      <h4 class="detalhes-nome"><?php echo $row["PRO_NOME"]; ?></h4>
-                      <div class="detalhes-info">
-                        <div class="detalhes-quantidade">
-                          <button id="remover">
-                            <i class='bx bx-minus'></i>
-                          </button>
-                          <span id="quantidade">1</span>
-                          <button id="acrescentar">
-                            <i class='bx bx-plus'></i>
-                          </button>
-                        </div>
-                        <div class="detalhes-preco">
-                          R$ <span id="preco"><?php echo $row["PRO_PRECO"]; ?></span>
-                        </div>
-                      </div>
-                    </div>
-                    <button class="excluir">
-                      <i class='bx bx-x' data-id="<?php echo $row["ID_PRODUTO"]; ?>" data-uid="<?php echo $user_id ?>"></i>
+          <form action="index.php" method="post">
+            <div class="item-flex">
+              <section class="checkout">
+                <h2 class="section-header">Detalhes do Pagamento</h2>
+                <div class="pagamento-form">
+                  <div class="pagamento-metodo">
+                    <button id="botao1" value="credito" onclick="mudarCor1()">
+                      <i class='bx bx-credit-card'></i>
+                      <span>Cartão de Crédito</span>
+                    </button>
+                    <button id="botao2" value="debito" onclick="mudarCor2()">
+                      <i class='bx bx-credit-card'></i>
+                      <span>Cartão de Débito</span>
                     </button>
                   </div>
-                  <?php
+                    <div class="cartao-nome">
+                      <label for="cartao-nome" class="labels">Nome do Cartão</label>
+                      <input type="text" name="cartao-nome" id="cartao-nome" class="inputs" required>
+                    </div>
+                    <div class="cartao-numero">
+                      <label for="cartao-numero" class="labels">Número do Cartão</label>
+                      <input type="number" name="cartao-numero" id="cartao-numero" class="inputs" required>
+                    </div>
+                    <div class="input-flex">
+                      <div class="data-validade">
+                        <label for="data-validade" class="labels">Data de Validade</label>
+                        <div class="input-flex">
+                          <input type="number" name="dia" id="data-validade" class="inputs" placeholder="31" min="1" max="31" required>
+                          /
+                          <input type="number" name="mes" id="data-validade" class="inputs" placeholder="12" min="1" max="12" required>
+                        </div>
+                      </div>
+                      <div class="cvv">
+                        <label for="cvv" class="labels">CVV</label>
+                        <input type="number" name="cvv" id="cvv" class="inputs" required>
+                      </div>
+                    </div>
+                </div>
+                <button class="pagar" name="submit">
+                  <b>Pagar:</b> R$<span id="pagar-total"></span>
+                </button>
+              </section>
+              <section class="carrinho">
+                <div class="carrinho-itens">
+                  <h2 class="section-header">Ordem de Produtos</h2>
+                  <div class="ordem-produto">
+                    <?php
+                      while($row_cart = mysqli_fetch_assoc($all_cart)){
+                        $sql = "SELECT * FROM tb_produto WHERE ID_PRODUTO=".$row_cart["ID_PRODUTO"];
+                        $all_product = $conexao->query($sql);
+                        while($row = mysqli_fetch_assoc($all_product)){
+                    ?>
+                    <div class="ordem-item">
+                      <a href="http://localhost/desenvolvimento/Produto/code/index.php?product_id=<?php echo $row["ID_PRODUTO"]; ?>">
+                      <div class="img-box">
+                        <img src="http://localhost/desenvolvimento/Cadastro-Produto/imagens/<?php echo $row["PRO_IMAGEM1"]; ?>" alt="" class="ordem-imagem">
+                      </div>
+                      </a>
+                      <div class="ordem-detalhes">
+                        <h4 class="detalhes-nome"><?php echo $row["PRO_NOME"]; ?></h4>
+                        <div class="detalhes-info">
+                          <div class="detalhes-quantidade">
+                            <button id="remover">
+                              <i class='bx bx-minus'></i>
+                            </button>
+                            <span id="quantidade">1</span>
+                            <button id="acrescentar">
+                              <i class='bx bx-plus'></i>
+                            </button>
+                          </div>
+                          <div class="detalhes-preco">
+                            R$ <span id="preco"><?php echo $row["PRO_PRECO"]; ?></span>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="excluir">
+                        <i class='bx bx-x' data-id="<?php echo $row["ID_PRODUTO"]; ?>" data-uid="<?php echo $user_id ?>"></i>
+                      </button>
+                    </div>
+                    <?php
+                      }
                     }
-                  }
-                  ?>
-                </div>
-              </div>
-              <div class="cupom">
-                <div class="cupom-desconto">
-                  <label for="cupom-desconto" class="labels">Cupom de Desconto</label>
-                  <div class="cupom-flex">
-                    <input type="text" name="cupom-desconto" id="cupom-desconto" class="inputs">
-                    <button class="cupom-aplicar">Aplicar</button>
+                    ?>
                   </div>
                 </div>
-                <div class="extrato">
-                  <div class="extrato-subtotal">
-                    <span>Subtotal:</span><span>R$ <span id="extrato-subtotal"></span></span>
+                <div class="cupom">
+                  <div class="cupom-desconto">
+                    <label for="cupom-desconto" class="labels">Cupom de Desconto</label>
+                    <div class="cupom-flex">
+                      <input type="text" name="cupom-desconto" id="cupom-desconto" class="inputs">
+                      <button class="cupom-aplicar">Aplicar</button>
+                    </div>
                   </div>
-                  <div class="extrato-taxas">
-                    <span>Taxas:</span><span>R$ <span id="extrato-taxas"></span></span>
-                  </div>
-                  <div class="extrato-desconto">
-                    <span>Desconto:</span><span>R$ <span id="extrato-desconto">0,00</span></span>
-                  </div>
-                  <div class="extrato-total">
-                    <span>Total:</span><span>R$ <span id="extrato-total"></span></span>
+                  <div class="extrato">
+                    <div class="extrato-subtotal">
+                      <span>Subtotal:</span><span>R$ <span id="extrato-subtotal"></span></span>
+                    </div>
+                    <div class="extrato-taxas">
+                      <span>Taxas:</span><span>R$ <span id="extrato-taxas"></span></span>
+                    </div>
+                    <div class="extrato-desconto">
+                      <span>Desconto:</span><span>R$ <span id="extrato-desconto">0,00</span></span>
+                    </div>
+                    <div class="extrato-total">
+                      <span>Total:</span><span>R$ <span id="extrato-total"></span></span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </section>
-          </div>
+              </section>
+            </div>
+          </form>
         </main>
         <!-- Footer -->
         <section class="footer">

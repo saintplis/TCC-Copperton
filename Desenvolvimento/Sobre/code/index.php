@@ -20,7 +20,7 @@ include('C:\xampp\htdocs\Desenvolvimento\Inicio\code\protect.php');
         <a href="http://localhost/desenvolvimento/Inicio/code/index.php" class="logo">Copperton</a>
         <div class="bx bx-menu" id="menu-icon"></div>
         <ul class="navbar">
-          <li><a href="http://localhost/desenvolvimento/Inicio/code/index.php">Produtos</a></li>
+          <li><a href="http://localhost/desenvolvimento/Catalogo/code/index.php">Produtos</a></li>
           <li><a href="http://localhost/desenvolvimento/Carrinho/code/index.php">Carrinho</a></li>
           <li><a href="http://localhost/desenvolvimento/Sobre/code/index.php">Sobre</a></li>
           <li><a href="http://localhost/desenvolvimento/Cadastro-Cliente/code/index.php">Cadastro</a></li>

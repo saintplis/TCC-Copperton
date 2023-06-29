@@ -74,7 +74,7 @@ section{
     position: fixed;
     background: var(--text-color);
     color: var(--background-color);
-    width: 30vh;
+    width: 35vh;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -89,7 +89,60 @@ section{
 }
 .pages li{
     font-size: 20px;
-    padding: 10px 30px;
+    padding: 10px 40px;
     display: flex;
     align-items: center;
+}
+li a{
+    text-decoration: none;
+    color: inherit;
+}
+.pages li:hover{
+    background: red;
+}
+.pages li a{
+    margin-left: 5px;
+}
+.pages li a:hover, i:hover{
+    color: white;
+}
+.container{
+    position: absolute;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+    background: rgb(193, 193, 193);
+    color: var(--background-color);
+    border-radius: 10px 0 0 0;
+}
+.container .header{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80vw;
+    height: 10vh;
+    background: white;
+    color: var(--background-color);
+    border-radius: 10px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.container .header .nav{
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.container .header .nav .user{
+    flex: 3;
+}
+.container .header .nav .settings{
+    flex: -1;
+}
+.user a{
+    color: red;
+}
+.dashboard{
+    padding-top: 75px;
 }
