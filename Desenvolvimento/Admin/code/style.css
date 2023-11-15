@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --main-color:#ff2525;
+    --text-color:#fff;
+    --background-color:#1e1c2a;
+    --backgroud-color-white:#f2f2f2;
+    --big-font:5rem;
+    --h2-font:2.25rem;
+    --h3-font: 1.25rem;
+    --p-font:0.9rem;
+}
+*::selection{
+    background: var(--main-color);
+    color: #fff;
+}
+body{
+    color: var(--text-color);
+    background: var(--background-color);
+}
+header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 170px;
+    background: var(--background-color);
+}
+li{
+    list-style: none;
+}
+.logo{
+    color: var(--main-color);
+    font-weight: 600;
+    font-size: 2.4rem;
+}
+.navbar{
+    display: flex;
+}
+.navbar a{
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+.navbar a:hover{
+    color: var(--main-color);
+    transition: .4s;
+}
+#menu-icon{
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+}
+.logout a{
+    color: var(--main-color);
+}
+section{
+    margin-top: 130px;
+}
+.pages{
+    position: fixed;
+    background: var(--text-color);
+    color: var(--background-color);
+    width: 35vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 10px 10px 0;
+}
+.pages .name-pages{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-color);
+}
+.pages li{
+    font-size: 20px;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+}
+li a{
+    text-decoration: none;
+    color: inherit;
+}
+.pages li:hover{
+    background: red;
+}
+.pages li a{
+    margin-left: 5px;
+}
+.pages li a:hover, i:hover{
+    color: white;
+}
+.container{
+    position: absolute;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+    background: rgb(193, 193, 193);
+    color: var(--background-color);
+    border-radius: 10px 0 0 0;
+}
+.container .header{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80vw;
+    height: 10vh;
+    background: white;
+    color: var(--background-color);
+    border-radius: 10px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.container .header .nav{
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.container .header .nav .user{
+    flex: 3;
+}
+.container .header .nav .settings{
+    flex: -1;
+}
+.user a{
+    color: red;
+}
+.dashboard{
+    padding-top: 75px;
+}
